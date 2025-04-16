@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CS HUD Config</title>
+    <link rel="stylesheet" href="/config/index.css" />
+  </head>
+  <body>
+    <div class="custom-title-bar">
+      <button class="window-btn minimize" id="minimize-btn" title="最小化"></button>
+      <button class="window-btn maximize" id="maximize-btn" title="最大化/还原"></button>
+      <button class="window-btn close" id="close-btn" title="关闭">X</button>
+    </div>
+    <!-- 侧边栏 -->
+    <div class="sidebar">
+      <button id="show-app2">HUD Manage</button>
+      <button id="show-app1">Player List</button>
+      <button class="special-hud-btn" id="openTransparentHud">
+        Open Overlay
+      </button>
+      <button id="openTeamLogosFolder">
+        Open Team Logos Folder
+      </button>
+    </div>
+    <!-- 第一个 Vue 应用的挂载点 -->
+    <div class="settings" id="app1"></div>
+    <!-- 第二个 Vue 应用的挂载点 -->
+    <div class="playerlist" id="app2"></div>
+    <script type="module" src="/config/index.js"></script>
+    <script>
+      const ws = new WebSocket('ws://127.0.0.1:31983');
+      let overlayOpened = false;
+      const overlayBtn = document.getElementById('openTransparentHud');
+
+      function safeSend(msg) {
+        if (ws.readyState === WebSocket.OPEN) {
+          ws.send(msg);
+        } else {
+          console.warn('WebSocket 未连接，无法发送:', msg);
+        }
+      }
+
+      function updateOverlayBtn() {
+        if (overlayOpened) {
+          overlayBtn.textContent = 'Close Overlay';
+          overlayBtn.onclick = () => safeSend('close-transparent-hud');
+        } else {
+          overlayBtn.textContent = 'Open Overlay';
+          overlayBtn.onclick = () => safeSend('open-transparent-hud');
+        }
+      }
+
+      ws.onopen = () => {
+        document.getElementById('minimize-btn').onclick = () => safeSend('window-minimize');
+        document.getElementById('maximize-btn').onclick = () => safeSend('window-maximize');
+        document.getElementById('close-btn').onclick = () => safeSend('window-close');
+        updateOverlayBtn();
+        document.getElementById('openTeamLogosFolder').onclick = () => safeSend('open-team-logos-folder');
+      };
+
+      ws.onmessage = (event) => {
+        if (event.data === 'overlay-opened') {
+          overlayOpened = true;
+          updateOverlayBtn();
+        } else if (event.data === 'overlay-closed') {
+          overlayOpened = false;
+          updateOverlayBtn();
+        }
+      };
+    </script>
+  </body>
+</html>

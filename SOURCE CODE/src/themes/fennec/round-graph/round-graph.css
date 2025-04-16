@@ -1,0 +1,39 @@
+.round-graph {
+  display: flex;
+  flex-direction: column; /* 使用垂直布局 */
+  position: absolute;
+  left: calc((100% - 600px) / 2);
+  right: calc((100% - 600px) / 2);
+  bottom: 25rem;
+  filter: var(--filter-drop-shadow);
+  overflow: hidden;
+  width: 600px;
+
+  background: #141414b8;
+  text-align: center;
+  border-radius: 1px;
+
+  transition: opacity var(--fade-slow-duration) ease;
+}
+
+.round-graph:not(.--active) {
+  opacity: 0;
+}
+
+.round-graph .title {
+  background-color: #2a2a2a;
+  color: white;
+  letter-spacing: 1.25px;
+  padding: 10px;
+  font-size: 2rem;
+  font-weight: bold;
+  border-radius: 5px 5px 0 0; /* 顶部圆角 */
+}
+
+.round-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 10px;
+  gap: 10px;
+}

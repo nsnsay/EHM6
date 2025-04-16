@@ -1,0 +1,8 @@
+<div class="deaths">
+  <div :class="['label', colorClass]">
+    <img src="/hud/img/icons/death.png" alt="" />
+  </div>
+  <div :class="['value', { '--bad': player.hasBadKdRatio }]">
+    {{ player.deaths }}
+  </div>
+</div>

@@ -1,0 +1,18 @@
+.sidebar {
+  position: absolute;
+  bottom: 5px;
+  transition: bottom 1.5s ease;
+  display: flex; /* 使用 flex 布局 */
+  flex-direction: column; /* 横向排列 */
+  gap: 9px; /* 玩家元素之间的间距 */
+}
+
+.sidebar.--left {
+  transition: left 1.5s ease;
+  left: 25px;
+}
+
+.sidebar.--right {
+  transition: right 1.5s ease;
+  right: 25px;
+}

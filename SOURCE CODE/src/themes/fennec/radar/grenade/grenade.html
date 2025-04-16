@@ -1,0 +1,6 @@
+  <Inferno v-if="grenade.type === 'inferno'" :grenade="normalizedGrenade" />
+  <Smoke
+    v-else-if="shouldShowAsSmoke(grenade)"
+    :grenade="normalizedGrenade"
+  />
+  <GrenadeProjectile v-else :grenade="normalizedGrenade" />

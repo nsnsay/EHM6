@@ -1,0 +1,22 @@
+.projectile {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  height: 1.3rem;
+
+  transform: translate(-50%, -50%) scale(1.4);
+  transition: all var(--fade-fast-duration);
+}
+
+.projectile.--ct {
+  filter: url(#counter-terrorists-fill-from-white-filter);
+}
+
+.projectile.--t {
+  filter: url(#terrorists-fill-from-white-filter);
+}
+
+.projectile:not(.--default-level) {
+  opacity: 0.75;
+}

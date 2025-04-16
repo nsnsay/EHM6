@@ -1,0 +1,21 @@
+.current-round {
+  grid-area: current-round;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+
+  padding: 0.25rem;
+
+  position: relative;
+  top: -4px; /* 向下偏移 5 像素 */
+}
+
+.current-round.--warmup {
+  position: relative;
+
+  top: 5px;
+  font-size: 1.5rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}

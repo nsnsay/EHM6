@@ -1,0 +1,26 @@
+.focused-player-highlight {
+  grid-area: focused-player-highlight;
+  transition: background-color var(--fade-fast-duration) ease;
+  width: 350%;
+  height: 100%;
+}
+
+.focused-player-highlight.dead {
+  opacity: 0;
+}
+
+.focused-player-highlight.--active {
+  display: none;
+}
+
+.focused-player-highlight.--left {
+  width: 350%;
+  height: 100%;
+}
+
+.focused-player-highlight.--right {
+  position: relative;
+  right: 18px;
+  width: 350%;
+  height: 100%;
+}

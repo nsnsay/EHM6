@@ -1,0 +1,51 @@
+.series-name {
+  font-family: var(--fyt);
+  grid-area: series-name;
+
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+
+  width: 450px;
+
+  display: grid;
+
+  grid-template-columns: 9fr 10fr;
+  grid-template-areas: 'left right';
+  margin: 0 auto;
+  border-radius: 5px;
+  text-align: center;
+  background: #2424249f;
+  opacity: 100%;
+  background-size: cover;
+  background-position: bottom;
+  background-repeat: no-repeat;
+}
+
+.left,
+.right {
+  padding: 0.475rem;
+  font-size: 1.5rem;
+
+  font-weight: bold;
+  /* 文字加粗 */
+}
+
+.left {
+  grid-area: left;
+}
+
+.left .inner {
+  color: #ffffff;
+  text-align: start;
+}
+
+.right .inner {
+  color: #dddddd !important;
+}
+
+.right {
+  grid-area: right;
+  text-align: end;
+  color: var(--white-90);
+}

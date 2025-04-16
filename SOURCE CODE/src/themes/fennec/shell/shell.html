@@ -1,0 +1,27 @@
+<SvgFilters />
+
+<div v-if="$opts['series.DisplayWatermaker']" class="watermaker">
+  <div class="text3">&nbsp; &nbsp; Powered by Github/nsnsay &nbsp; &nbsp;</div>
+</div>
+
+<template v-if="$map.name">
+  <TopBar />
+  <FocusedPlayer />
+  <Radars />
+  <Radar />
+
+  <!-- 根据 $opts['series.ShowOtherStyles'] 的值动态显示 Sidebars 或 Sidebars2 -->
+  <div v-if="$opts['series.ShowOtherStyles']">
+    <Replays />
+  </div>
+  <div v-else>
+    <Sidebars />
+  </div>
+
+  <admodule />
+
+  <SeriesGraph />
+  <RoundGraph />
+</template>
+
+<Corners v-else />

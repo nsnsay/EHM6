@@ -1,0 +1,162 @@
+<div class="buttons">
+  <!-- 打开浏览器 HUD 和雷达的链接以及强制刷新 HUD 的按钮 -->
+  <a href="/hud" target="_blank" class="button-link">Using browser HUD</a>
+  <a href="/radar" target="_blank" class="button-link">Open Radars</a>
+  <button class="force-hud-refresh" @click.prevent="forceHudRefresh">
+    Force Refresh HUD
+  </button>
+</div>
+
+<!-- 地图编辑弹窗 -->
+<div v-if="showMapEditorFlag" class="dialog">
+  <div class="dialog-content">
+    <h3>Match Series</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Map Name</th>
+          <th>Pick Team</th>
+          <th>Pick Team Score</th>
+          <th>Enemy Team Score</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="(map, index) in maps" :key="index">
+          <td>
+            <!-- 地图名称选择框 -->
+            <select v-model="map.name" class="map-name-select">
+              <option value="">Default</option>
+              <option value="de_dust2">Dust II</option>
+              <option value="de_mirage">Mirage</option>
+              <option value="de_vertigo">Vertigo</option>
+              <option value="de_ancient">Ancient</option>
+              <option value="de_overpass">Overpass</option>
+              <option value="de_nuke">Nuke</option>
+              <option value="de_inferno">Inferno</option>
+              <option value="de_anubis">Anubis</option>
+              <option value="de_cobblestone">Cobblestone</option>
+              <option value="de_train">Train</option>
+              <option value="de_cache">Cache</option>
+            </select>
+          </td>
+          <td>
+            <!-- 选择队伍输入框 -->
+            <input
+              type="text"
+              v-model="map.pickTeam"
+              placeholder="Pick Team"
+              class="pick-team-input"
+            />
+          </td>
+          <td>
+            <!-- 选择队伍得分输入框 -->
+            <input
+              type="number"
+              v-model="map.pickTeamScore"
+              placeholder="P.T Score"
+              class="score-input"
+            />
+          </td>
+          <td>
+            <!-- 敌方队伍得分输入框 -->
+            <input
+              type="number"
+              v-model="map.enemyTeamScore"
+              placeholder="E.T Score"
+              class="score-input"
+            />
+          </td>
+          <td>
+            <!-- 设置或移除决胜图按钮 -->
+            <button @click="toggleIsDecider(index)" class="decider-btn">
+              {{ map.isDecider ? 'Remove Decider' : 'Set as Decider' }}
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- 添加地图按钮 -->
+    <button @click="addMap" class="add-map-btn">Add Map</button>
+    <div class="dialog-buttons">
+      <!-- 取消和保存地图编辑的按钮 -->
+      <button @click="cancelMapEdit" class="cancel-btn">Cancel</button>
+      <button @click="saveMapData" class="save-btn">Save</button>
+    </div>
+  </div>
+</div>
+
+<!-- 区域导航 -->
+<div class="section-navigation" v-if="filteredSections.length > 0">
+  <div class="navigation-tabs">
+    <!-- 遍历显示各个区域的按钮 -->
+    <button
+      v-for="(section, index) in filteredSections"
+      :key="index"
+      :class="['tab-item', { active: currentSection === section }, `section-${section.displayedName}`]"
+      @click="currentSection = section"
+    >
+      {{ section.displayedName }}
+    </button>
+    <!-- 打开地图编辑弹窗的按钮 -->
+    <button class="edit-maps" @click="showMapEditor">Match Series</button>
+    <!-- 保存设置的按钮 -->
+    <button class="save" @click.prevent="save">Save Settings</button>
+  </div>
+</div>
+
+<!-- 当前选中区域内容 -->
+<section
+  v-if="currentSection"
+  :class="['sectionpage-' + currentSection.name, 'sectionpage']"
+>
+  <header>
+    <h2>{{ currentSection.name }}</h2>
+    <!-- 显示区域描述 -->
+    <p v-if="currentSection.description">{{ currentSection.description }}</p>
+  </header>
+  <!-- 遍历显示当前区域的选项 -->
+  <div
+    v-for="option of currentSection.options"
+    :key="option.key"
+    class="input-group"
+  >
+    <label :for="option.key">
+      <!-- 显示选项标签或键名 -->
+      {{ option.label || option.key }}
+    </label>
+    <div class="input">
+      <!-- 文本域输入 -->
+      <textarea
+        v-if="option.inputType === 'textarea'"
+        :id="option.key"
+        :placeholder="option.fallback"
+        v-model="optionValues[option.key]"
+      ></textarea>
+      <!-- 其他类型输入 -->
+      <input
+        v-else
+        :type="option.inputType"
+        :id="option.key"
+        :placeholder="option.fallback"
+        v-model="optionValues[option.key]"
+      />
+      <!-- 颜色选项重置按钮 -->
+      <button
+        v-if="option.type === 'color'"
+        class="reset"
+        @click.prevent="resetValue(option.key)"
+      >
+        Reset to default
+      </button>
+    </div>
+    <div class="default-and-label">
+      <!-- 显示选项默认值 -->
+      <p v-if="option.fallback" class="default">
+        <code v-if="option.type === 'boolean'"
+          >{{ option.fallback ? 'yes' : 'no' }}</code
+        >
+      </p>
+    </div>
+  </div>
+</section>

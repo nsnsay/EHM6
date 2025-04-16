@@ -1,0 +1,60 @@
+.series-name {
+  font-family: var(--fyt); /* 默认字体堆叠 */
+  grid-area: series-name;
+
+  display: grid;
+
+  grid-template-columns: 7fr 8fr 7fr;
+  grid-template-areas: 'left center right';
+  width: 89%;
+  height: 100%;
+  margin: 0 auto;
+  border-radius: 5px; /* 添加圆角 */
+  text-align: center;
+  background: linear-gradient(
+    to right,
+    rgba(47, 48, 67, 0),
+    var(--counter-terrorists-fill-100),
+    rgb(47, 48, 67),
+    var(--terrorists-fill-100),
+    rgba(47, 48, 67, 0)
+  );
+  opacity: 100%;
+  background-size: cover; /* 使背景图片覆盖整个元素 */
+  background-position: bottom; /* 将背景图片居中 */
+  background-repeat: no-repeat; /* 防止背景图片重复 */
+
+  transform: translateY(-5px); /* 添加这行代码 */
+}
+
+.left,
+.center,
+.right {
+  padding: 0.475rem;
+  font-size: 1.5rem;
+
+  font-weight: bold; /* 文字加粗 */
+}
+
+.left {
+  grid-area: left;
+  color: var(--white-90);
+}
+
+.left .inner .center {
+  grid-area: center;
+  font-weight: 700;
+  letter-spacing: 3rem !important;
+
+  text-shadow: 0 0 10px var(rgb(255, 255, 255));
+}
+
+.center .inner {
+  color: #ffbf00 !important;
+}
+
+.right {
+  grid-area: right;
+
+  color: var(--white-90);
+}

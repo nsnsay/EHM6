@@ -1,0 +1,101 @@
+.name-wrapper {
+  font-size: 2rem;
+  height: 52px;
+}
+
+.name {
+  height: 52px;
+}
+
+.name.--ct {
+  background: #2424249f;
+  border-radius: 8px 0px 0px 8px; /* 添加圆角 */
+  border-right: 7px solid var(--counter-terrorists-fill-100);
+}
+
+.name.--t {
+  background: #2424249f;
+  border-radius: 0px 8px 8px 0px; /* 添加圆角 */
+  border-left: 7px solid var(--terrorists-fill-100);
+}
+
+img.logo {
+  display: block;
+  max-height: calc(100% - var(--top-bar-team-logo-vertical-spacing) * 2);
+
+  opacity: 0.97;
+}
+
+img.logo.--left {
+  order: 1;
+  position: relative;
+
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+
+  right: 5px;
+
+  padding-right: 15px;
+}
+
+img.logo.--right {
+  position: relative;
+
+  left: 5px;
+
+  align-items: center;
+  justify-content: center;
+
+  align-self: center;
+
+  padding-left: 15px;
+}
+
+
+/* 原有样式保持不变... */
+
+.round-winner-panel {
+  position: absolute;
+  height: 100%;
+  width: 0;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: width 2s linear;
+  white-space: nowrap;
+}
+
+.round-winner-panel.--left {
+  right: 0;
+  background: var(--counter-terrorists-fill-100);
+}
+
+.round-winner-panel.--right {
+  left: 0;
+  background: var(--terrorists-fill-100);
+}
+
+.round-winner-enter-active,
+.round-winner-leave-active {
+  transition: all 2s ease;
+}
+
+.round-winner-enter-from,
+.round-winner-leave-to {
+  width: 0;
+  opacity: 0;
+}
+
+.round-winner-enter-to,
+.round-winner-leave-from {
+  width: 100%;
+  opacity: 1;
+}
+
+img.logo {
+  height: 3rem;
+}

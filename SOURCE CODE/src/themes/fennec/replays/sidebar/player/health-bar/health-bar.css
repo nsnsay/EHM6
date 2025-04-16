@@ -1,0 +1,69 @@
+.health-bar-background {
+  grid-area: 1 / newhealth/5/newmoney;
+
+  display: grid;
+  z-index: -1;
+
+  border-radius: 8px !important;
+}
+
+.health .health-bar-background .damage-taken .health {
+  border-radius: 8px !important;
+}
+
+.damage-taken,
+.health {
+  grid-area: 1/1;
+  height: 95%;
+  border-radius: 8px !important;
+}
+
+.health {
+  z-index: 1;
+
+  border-radius: 8px !important;
+}
+
+.damage-taken,
+.health {
+  transform-origin: bottom;
+  height: 100%;
+  border-radius: 8px !important;
+}
+
+.health.--left {
+  background: linear-gradient(
+    to top,
+    var(--counter-terrorists-fill-90),
+    rgba(0, 81, 255, 0.9)
+  );
+  border-radius: 8px !important;
+}
+
+.health.--right {
+  background: linear-gradient(
+    to top,
+    var(--terrorists-fill-90),
+    rgba(255, 0, 115, 0.8)
+  );
+  border-radius: 8px !important;
+}
+
+.damage-taken {
+  background: rgba(171, 228, 37, 0.4);
+  transition: transform var(--fade-default-duration) ease;
+  border-radius: 8px !important;
+}
+
+.damage-value {
+  position: absolute; /* 将round-kills设置为绝对定位 */
+  bottom: 5px; /* 调整top值，使round-kills位于newname上方 */
+  left: 15%; /* 水平居中 */
+  transform: translateY(-50%);
+  font-size: 12px;
+  color: white;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+  transition: opacity 0.5s ease;
+
+  border-radius: 8px !important;
+}

@@ -1,0 +1,1072 @@
+/* -------------------- 通用基础样式 -------------------- */
+/* 标签通用样式 */
+label {
+  color: rgb(255, 255, 255);
+}
+
+input[type='number'],
+input[type='text'],
+textarea,
+select,
+.map-name-select,
+.pick-team-input,
+.score-input {
+  width: 100%;
+  padding: 0.4rem 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px solid #aeaeae;
+  border-radius: 15px;
+  color: #dedede;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+input[type='number']::placeholder,
+input[type='text']::placeholder,
+textarea::placeholder {
+  color: #939393;
+}
+
+select option {
+  background: rgba(0, 0, 0, 1);
+  color: #dedede;
+}
+
+select .map-name-select {
+  border-radius: 3px;
+}
+
+select option:checked {
+  background: #4caf50;
+  color: white;
+}
+
+select::after {
+  content: '▼';
+  font-size: 12px;
+  color: #aeaeae;
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+textarea {
+  height: 8rem;
+  resize: vertical;
+}
+
+/* 滚动条样式 */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(144, 144, 144, 0.5);
+  border-radius: 10px;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(144, 144, 144, 0.8);
+}
+
+::-webkit-scrollbar-thumb:active {
+  background: rgba(144, 144, 144, 1);
+}
+
+::-webkit-scrollbar-corner {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+html {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(144, 144, 144, 0.5) rgba(255, 255, 255, 0.05);
+}
+
+/* -------------------- 输入组相关样式 -------------------- */
+/* 输入组样式 */
+.input-group {
+  margin-bottom: 2.5rem;
+  padding: 0 1rem;
+  display: grid;
+  grid-template-areas: 'key' 'input';
+  grid-gap: 0.5rem;
+}
+
+@media (min-width: 600px) {
+  .input-group {
+    grid-template-columns: repeat(2, minmax(0, 48rem));
+    grid-template-rows: max-content auto;
+    grid-template-areas: 'key input';
+    grid-gap: 0 1rem;
+    align-items: center;
+  }
+}
+
+.input-group label {
+  grid-area: key;
+  display: block;
+  align-self: center;
+  word-wrap: break-word;
+}
+
+@media (min-width: 600px) {
+  .input-group label {
+    text-align: right;
+  }
+}
+
+.input-group > input,
+.input-group > textarea,
+.input-group .input {
+  grid-area: input;
+}
+
+.input-group .input {
+  display: flex;
+  align-items: center;
+}
+
+.input-group .input button.reset {
+  margin-left: 2rem;
+  background: none;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.input-group .input button.reset:not(:active):not(:hover) {
+  text-decoration: underline;
+}
+
+/* -------------------- 复选框样式 -------------------- */
+input[type='checkbox'] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #aeaeae;
+  border-radius: 70%;
+  background-color: transparent;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.manage[type='checkbox'] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #aeaeae;
+  background-color: transparent;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.3s ease;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: end;
+}
+
+input[type='checkbox']:checked {
+  background-color: #4caf50;
+  border-color: #4caf50;
+}
+
+input[type='checkbox']:checked::after {
+  content: '✓';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+input[type='checkbox']:hover {
+  border-color: #4caf50;
+}
+
+input[type='checkbox']:active {
+  transform: scale(0.95);
+}
+
+@media (max-width: 600px) {
+  input[type='checkbox'] {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+/* -------------------- 表格样式 -------------------- */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+th,
+td {
+  padding: 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+th {
+  background: rgba(255, 255, 255, 0.05);
+  color: rgba(255, 255, 255, 0.8);
+  cursor: pointer;
+}
+
+tr:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.team-members table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.team-members th,
+.team-members td {
+  padding: 0.5rem;
+  text-align: left;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.team-members th {
+  background: rgba(255, 255, 255, 0.05);
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* -------------------- 对话框样式 -------------------- */
+/* 对话框样式 */
+.dialog {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.dialog-content {
+  background: #2c3e50;
+  padding: 20px;
+  border-radius: 5px;
+  width: 80%;
+  max-width: 800px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.dialog-content h3 {
+  margin-top: 0;
+  color: white;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.dialog-content input {
+  width: 80%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.dialog-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.dialog-buttons button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.dialog-buttons button:first-child {
+  background: #e74c3c;
+  color: white;
+}
+
+.dialog-buttons button:last-child {
+  background: #2ecc71;
+  color: white;
+}
+
+/* -------------------- 按钮样式 -------------------- */
+/* 通用按钮样式 */
+.player-name-rename-btn,
+.hide-player-btn,
+.unhide-player-btn,
+.upload-avatar-btn,
+.buttons a,
+.buttons button,
+.save,
+.edit-maps,
+.decider-btn,
+.remove-btn,
+.add-map-btn,
+.cancel-btn,
+.save-btn,
+.reset-btn,
+.player-info-btn {
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.player-name-rename-btn,
+.hide-player-btn,
+.unhide-player-btn,
+.upload-avatar-btn {
+  background: none;
+  border: 1px solid;
+  padding: 0.3rem 0.6rem;
+  font-size: 0.8rem;
+  margin-right: 1rem;
+}
+
+.player-name-rename-btn {
+  border-color: #4caf50;
+  color: #4caf50;
+}
+
+.player-name-rename-btn:hover {
+  background: #4caf50;
+  color: white;
+  transform: scale(1.05);
+}
+
+.hide-player-btn {
+  border-color: #e74c3c;
+  color: #e74c3c;
+}
+
+.hide-player-btn:hover {
+  background: #e74c3c;
+  color: white;
+  transform: scale(1.05);
+}
+
+.unhide-player-btn {
+  border-color: #2ecc71;
+  color: #2ecc71;
+}
+
+.unhide-player-btn:hover {
+  background: #2ecc71;
+  color: white;
+  transform: scale(1.05);
+}
+
+.upload-avatar-btn {
+  border-color: #3498db;
+  color: #3498db;
+}
+
+.upload-avatar-btn:hover {
+  background: #3498db;
+  color: white;
+  transform: scale(1.05);
+}
+
+.player-name-rename-btn:active,
+.hide-player-btn:active,
+.unhide-player-btn:active,
+.upload-avatar-btn:active {
+  transform: scale(0.95);
+}
+
+.buttons {
+  position: fixed;
+  bottom: 4.25rem;
+  right: 0rem;
+  width: 900px;
+  z-index: 1;
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.buttons a,
+.buttons button {
+  margin: 0.5rem;
+  padding: 0.5rem 1rem;
+  display: block;
+  background: none;
+  border: 1px solid;
+  color: inherit;
+  font-size: 1rem;
+  text-align: center;
+  text-decoration: none;
+}
+
+.buttons a:active,
+.buttons button:active {
+  transform: scale(0.95);
+}
+
+.buttons a {
+  border: 2px solid #ee7c93;
+}
+
+.buttons a:hover {
+  background: #aeaeae;
+  color: #212121;
+}
+
+.buttons button.save:hover {
+  background: green;
+  color: #fff;
+}
+
+.buttons button.force-hud-refresh {
+  border: 2px solid #0e4e6c;
+}
+
+.buttons button.force-hud-refresh:hover {
+  background: yellow;
+  color: #212121;
+}
+
+@media (max-width: 599px) {
+  .buttons {
+    padding: 1rem;
+  }
+}
+
+.save,
+.edit-maps {
+  padding: 0.5rem 1rem;
+  border: none;
+  color: inherit;
+  width: max-content;
+  white-space: nowrap;
+  height: 45px;
+}
+
+.save {
+  background: rgba(255, 0, 0, 0.1);
+  position: relative;
+  left: 80px;
+}
+
+.save:hover {
+  background: #ff7c7c;
+  color: white;
+  transform: scale(1.05);
+}
+
+.edit-maps {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.edit-maps:hover {
+  background: #3498db;
+  color: white;
+  transform: scale(1.05);
+}
+
+.edit-maps:active {
+  transform: scale(0.95);
+}
+
+.decider-btn,
+.remove-btn,
+.add-map-btn,
+.cancel-btn,
+.save-btn,
+.reset-btn,
+.player-info-btn {
+  padding: 0.4rem 0.8rem;
+  border: none;
+  font-size: 0.9rem;
+  margin-right: 5px;
+}
+
+.decider-btn {
+  background-color: #3498db;
+  color: white;
+}
+
+.decider-btn:hover {
+  background-color: #2980b9;
+}
+
+.remove-btn {
+  background-color: #e74c3c;
+  color: white;
+}
+
+.remove-btn:hover {
+  background-color: #c0392b;
+}
+
+.add-map-btn {
+  background-color: #2ecc71;
+  color: white;
+  margin-top: 1rem;
+  padding: 0.6rem 1rem;
+  font-size: 1rem;
+}
+
+.add-map-btn:hover {
+  background-color: #27ae60;
+}
+
+.cancel-btn {
+  background-color: #95a5a6;
+  color: white;
+}
+
+.cancel-btn:hover {
+  background-color: #7f8c8d;
+}
+
+.save-btn {
+  background-color: #2ecc71;
+  color: white;
+}
+
+.save-btn:hover {
+  background-color: #27ae60;
+}
+
+.reset-btn {
+  background-color: #f39c12;
+  color: white;
+}
+
+.reset-btn:hover {
+  background-color: #d35400;
+}
+
+.player-info-btn {
+  background: none;
+  border: 1px solid #3498db;
+  color: #3498db;
+  margin-bottom: 1rem;
+}
+
+.player-info-btn:hover {
+  background: #3498db;
+  color: white;
+  transform: scale(1.05);
+}
+
+.player-info-btn:active {
+  transform: scale(0.95);
+}
+
+/* -------------------- 区域和导航样式 -------------------- */
+/* 区域样式 */
+section {
+  position: absolute;
+  top: 3rem;
+  right: 2rem;
+  transform: scale(0.95);
+  margin-bottom: 6rem;
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.05),
+    rgba(255, 255, 255, 0.1)
+  );
+  border-radius: 1rem;
+  box-shadow:
+    0 4px 6px rgba(0, 0, 0, 0.1),
+    0 1px 3px rgba(0, 0, 0, 0.06);
+  padding: 2rem;
+  width: 650px;
+}
+
+section:first-of-type {
+  margin-top: 2rem;
+}
+
+@media (max-width: 1299px) {
+  section:first-of-type {
+    margin-top: 8rem;
+  }
+}
+
+section header {
+  margin: 0 1rem 2rem;
+}
+
+@media (min-width: 600px) {
+  section header {
+    margin-left: 4rem;
+  }
+}
+
+section header p {
+  max-width: 48rem;
+  margin-top: 0.5rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.section-navigation {
+  position: fixed;
+  top: 3rem;
+  left: 26.5rem;
+  margin: 1rem 0;
+  padding: 0.5rem 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 50rem;
+}
+
+.navigation-tabs {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+}
+
+.tab-item {
+  padding: 0.5rem 1rem;
+  border: none;
+  background: rgba(255, 255, 255, 0.1);
+  color: inherit;
+  cursor: pointer;
+  border-radius: 0.25rem;
+  font-size: 1rem;
+  width: max-content;
+  white-space: nowrap;
+  height: 45px;
+  transition:
+    background-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.tab-item:hover {
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.tab-item.active {
+  background: rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.sectionpage {
+  border-radius: 0px;
+  position: fixed;
+  top: 8.5rem;
+  left: 25.5rem;
+  right: unset;
+}
+
+.section-Theme {
+  background-color: rgba(0, 0, 255, 0.2);
+  color: #0000ff;
+  display: none;
+}
+
+.section-Displays {
+  background-color: rgba(255, 255, 0, 0.2);
+  color: #ffff00;
+}
+
+.section-undefined,
+.section-Map1,
+.section-Map2,
+.section-Map3,
+.section-Map4,
+.section-Map5 {
+  display: none;
+}
+
+.sectionpage-Preferences,
+.sectionpage-Cvars {
+  max-height: 600px;
+  overflow: auto;
+  display: block;
+}
+
+/* -------------------- 特定组件样式 -------------------- */
+.player-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.player-item input {
+  margin-right: 0.5rem;
+  padding: 0.25rem 0.5rem;
+  width: auto;
+}
+
+.player-item button {
+  margin-left: 0.25rem;
+  padding: 0.25rem 0.5rem;
+}
+
+.playerInfoWrapper {
+  position: relative;
+  top: 4rem;
+  left: 35rem;
+  max-width: 900px;
+  max-height: 600px;
+  overflow: visible;
+}
+
+/* 团队面板样式 */
+.team-panel {
+  margin-bottom: 2rem;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+}
+
+.team-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* 标题栏样式 */
+.title-bar {
+  display: flex;
+  justify-content: flex-end;
+  height: 30px;
+  -webkit-app-region: drag;
+}
+
+.title-bar button {
+  width: 50px;
+  height: 30px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  -webkit-app-region: no-drag;
+  transition: all 0.3s ease;
+}
+
+.minimize-btn,
+.maximize-btn,
+.close-btn {
+  background-color: #f1f1f1;
+}
+
+.close-btn:hover {
+  background-color: #ff5f5f;
+}
+
+.maximize-btn:hover {
+  background-color: #4caf50;
+}
+
+.minimize-btn:hover {
+  background-color: #2196f3;
+}
+
+.upload-avatar-btn {
+  background: none;
+  border: 1px solid #3498db;
+  color: #3498db;
+  padding: 0.3rem 0.6rem;
+  font-size: 0.8rem;
+  margin-left: 0.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;  /* 新增定位 */
+  overflow: hidden;    /* 新增溢出隐藏 */
+}
+
+.upload-avatar-btn::after {  /* 新增伪元素显示文件名 */
+  content: attr(data-file-name);
+  display: inline-block;
+  margin-left: 0.5rem;
+  font-style: italic;
+  color: rgba(255,255,255,0.7);
+  max-width: 150px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.upload-avatar-btn:hover {
+  background: #3498db;
+  color: white;
+  transform: scale(1.05);
+}
+
+.upload-avatar-btn:active {
+  transform: scale(0.95);
+}
+
+img.player-avatar {
+  height: 2rem;
+}
+
+.load-avatar-checkbox {
+  margin: 1rem 0;
+  display: flex;
+  align-items: center;
+  width: 20px;
+  height: 20px;
+}
+
+.load-avatar-checkbox input {
+  margin-right: 0.5rem;
+}
+
+.player-manage-btn {
+  border: 1px solid #4dffed;
+  background: none;
+  color: #4dffed;
+  padding: 0.3rem 0.6rem;
+  font-size: 0.8rem;
+  margin-left: 0.5rem;
+  border-radius: 4px;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+.player-manage-btn:hover {
+  background: #4dffed;
+  color: #fff;
+  transform: scale(1.05);
+}
+
+.player-manage-btn:active {
+  background: #4dffed;
+  color: #fff;
+  transform: scale(0.95);
+}
+
+.manage-section {
+  margin: 1rem 0;
+  padding: 1rem;
+  border: 1px solid #eee;
+  border-radius: 4px;
+  justify-content: space-between;
+}
+
+.manage-section h4 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+}
+
+/* ... 省略前面代码 ... */
+
+/* Player Manage 弹窗专属样式优化 */
+.player-manage-dialog .dialog-content label {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+  margin-top: 10px;
+  font-size: 1rem;
+  color: #dedede;
+  gap: 8px;
+}
+
+.player-manage-dialog .dialog-content input[type="text"] {
+  margin-bottom: 12px;
+  margin-top: 0;
+}
+
+.player-manage-dialog .dialog-content input[type="file"] {
+  margin-bottom: 18px;
+}
+
+.player-manage-dialog .dialog-content input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  margin-right: 8px;
+  margin-left: 0;
+  accent-color: #00f7ff;
+  vertical-align: middle;
+}
+
+/* 让弹窗内所有输入项纵向排列并有统一间距 */
+.player-manage-dialog .dialog-content > label,
+.player-manage-dialog .dialog-content > input,
+.player-manage-dialog .dialog-content > .dialog-buttons {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* ... 省略前面代码 ... */
+
+/* 删除头像按钮样式优化 */
+.player-avatar-delete-btn {
+  border: 1px solid #ff4d4f;
+  background: none;
+  color: #ff4d4f;
+  padding: 0.3rem 0.6rem;
+  font-size: 0.8rem;
+  margin-left: 0.5rem;
+  border-radius: 4px;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+.player-avatar-delete-btn:hover {
+  background: #ff4d4f;
+  color: #fff;
+  transform: scale(1.05);
+}
+
+.player-avatar-delete-btn:active {
+  background: #d9363e;
+  color: #fff;
+  transform: scale(0.95);
+}
+
+.player-cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.player-cards-row {
+  display: flex;
+  flex-direction: row;
+  gap: 1.5rem;
+  justify-content: center;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+/* 单个玩家卡片 */
+.player-card {
+  flex: 0 0 180px; /* 固定宽度，保证一行五个 */
+  max-width: 200px;
+  background: rgba(255,255,255,0.07);
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  padding: 1.5rem 1.2rem 1.2rem 1.2rem;
+  min-width: 220px;
+  max-width: 260px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  transition: box-shadow 0.2s;
+}
+
+.player-card:hover {
+  box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+  background: rgba(255,255,255,0.13);
+}
+
+.player-avatar-large {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1rem;
+  border: 2px solid #fff;
+  background: #222;
+}
+
+.player-card-info {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.player-card-steamid {
+  font-size: 0.95rem;
+  color: #aaa;
+  margin-bottom: 0.3rem;
+  word-break: break-all;
+}
+
+.player-card-name {
+  font-size: 1.15rem;
+  color: #fff;
+  font-weight: bold;
+}
+
+.player-card-actions {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  margin-top: 0.5rem;
+}
+
+.player-avatar-large.avatar-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #333;
+  color: #bbb;
+  font-size: 2.2rem;
+  font-weight: bold;
+  border: 2px dashed #888;
+}
+
+.player-avatar-large.avatar-placeholder span {
+  user-select: none;
+}
+
+.team-title {
+  font-size: 1.35rem;
+  font-weight: bold;
+  letter-spacing: 0.08em;
+  margin: 1.5rem 0 1rem 0;
+  padding: 0.4rem 1.2rem;
+  border-radius: 8px;
+  display: inline-block;
+  background: linear-gradient(90deg, #1e293b 60%, #334155 100%);
+  color: #00eaff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+  border-left: 6px solid #00eaff;
+  transform: translateX(-250px);
+}
+
+
+.team-title.t-side {
+  color: #ffb300;
+  border-left-color: #ffb300;
+  background: linear-gradient(90deg, #3b1e1e 60%, #554133 100%);
+}

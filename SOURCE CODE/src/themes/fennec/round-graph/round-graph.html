@@ -1,0 +1,6 @@
+<div :class="['round-graph', { '--active': isActive }]">
+  <div class="title">Round History</div>
+  <div class="round-container">
+    <Round v-for="round of rounds" :round="round" />
+  </div>
+</div>

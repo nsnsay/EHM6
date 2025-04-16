@@ -1,0 +1,17 @@
+.team {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.team.--left {
+  grid-area: team-left;
+  position: relative;
+  top: 5px;
+}
+
+.team.--right {
+  grid-area: team-right;
+  position: relative;
+  top: 5px;
+}

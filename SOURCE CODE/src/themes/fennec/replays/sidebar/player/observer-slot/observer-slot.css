@@ -1,0 +1,35 @@
+.observer-slot {
+  grid-area: observer-slot;
+
+  height: max-content;
+  align-self: center;
+
+  font-size: 1.25rem;
+  font-weight: 700;
+
+  color: black;
+}
+
+.observer-slot.--focused {
+  border: 0.2rem solid var(--white);
+}
+
+.observer-slot.dead {
+  border: 0rem soild var(--white);
+}
+
+.observer-slot.--left {
+  background-color: rgb(0, 187, 255);
+  border-radius: 70px;
+  text-align: center;
+}
+
+.observer-slot.--right {
+  background-color: var(--tcolor2);
+  border-radius: 70px;
+  text-align: center;
+}
+
+.observer-slot.dead {
+  background-color: rgba(225, 14, 14, 0.6);
+}

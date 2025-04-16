@@ -1,0 +1,10 @@
+<div v-if="player.isAlive" class="health-bar-background">
+  <div
+    :class="['health', colorClass, positionClass]"
+    :style="{ transform: `scaleY(${player.health / 100})` }"
+  ></div>
+  <div
+    :class="['damage-taken', colorClass, positionClass]"
+    :style="{ transform: `scaleY(${healthBeforeDamageTaken / 100})` }"
+  ></div>
+</div>

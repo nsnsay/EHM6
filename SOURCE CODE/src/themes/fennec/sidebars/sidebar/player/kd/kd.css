@@ -1,0 +1,54 @@
+.newkd {
+  grid-area: newkd; /* 确保与 player.--left 的 grid-template-areas 一致 */
+  display: grid;
+  text-align: center;
+  grid-template-columns: 0.3fr 0.3fr 0.3fr;
+  grid-template-rows: repeat(1, 1fr);
+  grid-gap: 8px;
+  grid-template-areas: 'newkills assists newdeaths';
+
+  align-self: center;
+  align-items: center;
+  justify-content: center;
+  justify-self: center;
+
+  font-size: 15px;
+
+  z-index: 1000000;
+}
+
+.newkills {
+  grid-area: newkills;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* 水平居中 */
+  gap: 0.1rem;
+}
+
+.newdeaths {
+  grid-area: newdeaths;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* 水平居中 */
+  gap: 0.1rem;
+}
+
+.assists {
+  grid-area: assists;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.1rem;
+}
+
+.newkills img {
+  width: 13px; /* 根据需要调整图像大小 */
+}
+
+.newdeaths img {
+  width: 13px;
+}
+
+.assists img {
+  width: 13px;
+}

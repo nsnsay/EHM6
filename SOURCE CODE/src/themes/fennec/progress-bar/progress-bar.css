@@ -1,0 +1,33 @@
+.progress-bar-background {
+  width: 120%;
+  height: 1.25rem;
+  overflow: hidden;
+  background: linear-gradient(to right, #7777779f, #7777779f);
+  border-radius: 15px;
+}
+
+.progress-bar-fill {
+  height: 100%;
+}
+
+.progress-bar-fill.--to-left,
+.progress-bar-fill.--left {
+  transform-origin: left;
+}
+
+.progress-bar-fill.--to-right,
+.progress-bar-fill.--right {
+  transform-origin: right;
+}
+
+.progress-bar-fill.--ct {
+  background: var(--counter-terrorists-fill);
+}
+
+.progress-bar-fill.--t {
+  background: var(--terrorists-fill);
+}
+
+.progress-bar-fill.--bomb {
+  background: var(--bomb-planted-fill);
+}

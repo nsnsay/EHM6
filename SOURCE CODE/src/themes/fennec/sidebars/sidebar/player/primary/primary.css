@@ -1,0 +1,41 @@
+.primary {
+  grid-area: primary;
+
+  display: flex;
+  align-items: center;
+  padding-left: 5px;
+}
+
+.primary.--right img {
+  transform: rotateY(180deg);
+}
+
+.secondary.--right img {
+  transform: rotateY(180deg);
+}
+
+.primary img {
+  height: 2rem;
+  transition: opacity var(--fade-fast-duration) ease;
+}
+
+.primary img:not(.--active) {
+  opacity: 0.5;
+}
+
+.secondary {
+  grid-area: primary;
+
+  display: flex;
+  align-items: center;
+  padding-left: 5px;
+}
+
+.secondary img {
+  height: 2rem;
+  transition: opacity var(--fade-fast-duration) ease;
+}
+
+.secondary img:not(.--active) {
+  opacity: 0.5;
+}

@@ -1,0 +1,9 @@
+<TeamGrenades :team="team" :position="position" />
+<div v-if="$opts[`series.hideSidebars`]" :class="['sidebar', positionClass]">
+  <Player
+    v-for="player of team.players"
+    :key="player.steam64Id"
+    :player="player"
+    :position="position"
+  />
+</div>

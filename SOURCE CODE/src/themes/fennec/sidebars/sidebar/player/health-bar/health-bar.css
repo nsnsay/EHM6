@@ -1,0 +1,49 @@
+.health-bar-background {
+  grid-area: 1/newhealth/5/newmoney;
+
+  display: grid;
+  z-index: -1;
+}
+
+.damage-taken,
+.health {
+  grid-area: 1/1;
+  height: 100%;
+  border-radius: 8px;
+}
+
+.health {
+  z-index: 1;
+  border-radius: 8px;
+
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform-style: preserve-3d;
+}
+
+.damage-taken,
+.health {
+  height: 100%;
+}
+
+.health.--left {
+  background: var(--counter-terrorists-fill-90);
+  border-radius: 8px;
+
+  transform-origin: bottom;
+}
+
+.health.--right {
+  background: var(--terrorists-fill-90);
+  transform-origin: bottom;
+}
+
+.damage-taken {
+  background: rgba(171, 228, 37, 0.4);
+  transition: transform var(--fade-default-duration) ease;
+  transform-origin: bottom;
+}
+
+.damage-taken.--left {
+  transform-origin: bottom;
+}

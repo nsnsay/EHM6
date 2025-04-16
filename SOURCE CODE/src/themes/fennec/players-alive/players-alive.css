@@ -1,0 +1,65 @@
+.players-alive {
+  font-family: var(--fyt); /* 默认字体堆叠 */
+  position: fixed;
+  top: 5rem; /* 置于顶部 */
+  right: 5rem;
+  border-radius: 10px; /* 添加圆角 */
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-areas:
+    'title title title'
+    'left vs right';
+
+  background-image: url('/hud/img/icons/bg4.svg');
+  opacity: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  box-shadow: var(--box-shadow);
+  font-weight: 650;
+
+  justify-content: center;
+
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.85);
+}
+
+.team-equipment.--active {
+  transform: translateY(101%);
+}
+
+.title {
+  grid-area: title;
+  padding: 0.25rem 0.5rem;
+
+  font-size: 1.35rem;
+  letter-spacing: 0.125rem;
+  text-align: center;
+}
+
+.team,
+.vs {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 1;
+  padding: 0.5rem;
+  min-width: calc(1rem + 1ch);
+}
+
+.team {
+  font-size: 3rem;
+}
+
+.team.--ct {
+  color: var(--counter-terrorists-fill);
+  text-shadow: 0 0 10px var(--counter-terrorists-fill);
+}
+
+.team.--t {
+  color: var(--terrorists-fill);
+  text-shadow: 0 0 10px var(--terrorists-fill);
+}
+
+.vs {
+  font-size: 2rem;
+}

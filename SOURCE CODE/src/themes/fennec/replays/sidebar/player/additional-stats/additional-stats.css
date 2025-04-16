@@ -1,0 +1,41 @@
+.additional-stats-wrapper {
+  grid-area: additional-stats;
+}
+
+.additional-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 2fr;
+  grid-gap: 0 0.5rem;
+
+  padding: 0 0.5rem;
+
+  transition: all 1s ease-in-out;
+  background-image: url(/hud/img/icons/bg2.svg);
+  opacity: 100%;
+  background-size: cover; /* 使背景图片覆盖整个元素 */
+  background-position: center; /* 将背景图片居中 */
+  background-repeat: repeat; /* 防止背景图片重复 */
+  border-radius: 5px; /* 添加圆角 */
+}
+
+.additional-stats.--left {
+  position: relative;
+  left: 8px;
+  border-top: 4px solid rgb(5, 167, 226, 0.85); /* 添加描边效果 */
+  box-shadow: 0 0 15px rgb(5, 167, 226, 0.85);
+}
+
+.additional-stats.--right {
+  position: relative;
+  right: 19px;
+  border-top: 5px solid rgba(235, 176, 29, 0.85);
+  box-shadow: 0 0 15px rgb(235, 176, 29, 0.85);
+}
+
+.additional-stats.--left:not(.--active) {
+  opacity: 0;
+}
+
+.additional-stats.--right:not(.--active) {
+  opacity: 0;
+}

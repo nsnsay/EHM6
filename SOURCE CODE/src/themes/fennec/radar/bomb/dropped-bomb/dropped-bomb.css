@@ -1,0 +1,22 @@
+.dropped-bomb {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  transform: translate(-50%, -50%);
+
+  background: rgba(0, 0, 0, 1);
+}
+
+.dropped-bomb:not(.--default-level) {
+  opacity: 0.75;
+}
+
+img {
+  display: block;
+  height: 1.25rem;
+
+  filter: drop-shadow(0 0 0.75rem rgb(255, 0, 0));
+
+  transform: scale(1.5);
+}

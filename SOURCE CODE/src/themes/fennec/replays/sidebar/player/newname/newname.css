@@ -1,0 +1,51 @@
+.newname {
+  font-family: var(--fyt); /* 默认字体堆叠 */
+  grid-area: newname; /* 确保与 player.--left 的 grid-template-areas 一致 */
+  overflow: visible;
+  display: flex;
+  align-items: center;
+
+  justify-content: center;
+
+  font-weight: 600;
+  font-size: 1.7rem;
+
+  color: rgba(255, 255, 255, 0.9);
+  position: relative; /* 为newname设置相对定位 */
+}
+
+.observer-slot {
+  position: absolute;
+  bottom: 90px;
+  left: 5px;
+
+  z-index: 0;
+
+  height: 15px;
+  width: 15px;
+
+  justify-content: center;
+  text-align: center;
+
+  font-size: 1.5rem;
+  font-weight: 700;
+
+  padding: 2px 2px;
+
+  border-radius: 70px;
+  color: rgb(0, 0, 0);
+  background: rgba(255, 255, 255, 0.9);
+
+  border: 1px solid black;
+}
+
+.observer-slot.--right {
+  position: absolute;
+  bottom: 90px;
+  left: unset;
+  right: 5px;
+}
+
+.observer-slot.dead {
+  display: none;
+}

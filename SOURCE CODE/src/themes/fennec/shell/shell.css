@@ -1,0 +1,15 @@
+.watermaker {
+  display: grid;
+  background: linear-gradient(to right, var(--ctcolor2), #6d39f2);
+  box-shadow: var(--box-shadow);
+  position: absolute;
+  top: 3rem; /* 置于顶部 */
+  right: 22rem;
+
+  max-width: fit-content;
+  height: 3rem;
+  align-items: center;
+  justify-content: center;
+  font-size: 12.5px;
+  border-radius: 25px;
+}

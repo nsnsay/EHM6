@@ -1,0 +1,22 @@
+<div :class="['newkd', colorClass, positionClass]">
+  <Transition>
+    <div class="newkills">
+      <img src="/hud/img/icons/crosshair2.svg" alt="" />
+      {{ player.kills }}
+    </div>
+  </Transition>
+
+  <Transition>
+    <div class="newdeaths">
+      <img src="/hud/img/icons/kill.png" alt="" />
+      {{ player.deaths }}
+    </div>
+  </Transition>
+
+  <Transition>
+    <div class="assists">
+      <img src="/hud/img/icons/assist.png" alt="" />
+      {{ player.assists }}
+    </div>
+  </Transition>
+</div>

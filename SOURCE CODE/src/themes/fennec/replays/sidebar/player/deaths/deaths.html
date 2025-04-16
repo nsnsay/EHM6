@@ -1,0 +1,9 @@
+<Transition>
+  <div v-if="! $round.isFreezetime" class="deaths">
+    <div :class="['label', colorClass]">
+      &nbsp;<img src="/hud/img/icons/kill.png" alt="" />
+    </div>
+    {{ player.deaths.toString().length === 1 ? player.assists + '&nbsp;' :
+    player.deaths }}
+  </div>
+</Transition>

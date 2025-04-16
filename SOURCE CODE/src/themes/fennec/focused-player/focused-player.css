@@ -1,0 +1,7 @@
+.focused-player {
+  filter: var(--filter-drop-shadow);
+  border-radius: 10px; /* 添加圆角 */
+  position: fixed;
+  left: 46.25%; /* 使用居中定位 */
+  bottom: 5px;
+}

@@ -1,0 +1,7 @@
+<div v-if="player.isAlive" :class="['health', { 'low': player.health < 25 }]">
+  <Digits digits="2" :value="player.health" />
+</div>
+<div v-if="player.hasArmor || player.hasHelmet" class="armor">
+  <img v-if="player.hasHelmet" src="/hud/img/icons/armor-helmet.svg" alt="" />
+  <img v-else src="/hud/img/icons/armor.svg" alt="" />
+</div>

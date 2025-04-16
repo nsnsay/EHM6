@@ -1,0 +1,18 @@
+.radar {
+  position: fixed; /* 使元素相对于视口固定 */
+  top: 3.5rem; /* 距离顶部 1rem（可以根据需要调整） */
+  left: 1rem; /* 距离左侧 1rem（可以根据需要调整） */
+
+  width: var(--radar-width);
+  aspect-ratio: 1;
+  overflow: hidden; /* might break the drop shadow on some maps (not sure), but prevents players floating around on screen during 1v1 warmups */
+}
+
+img.radar-image {
+  width: 100%;
+  opacity: 0.95;
+}
+
+img.radar-image.--transparent-background {
+  filter: var(--filter-drop-shadow);
+}

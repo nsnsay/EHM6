@@ -1,0 +1,7 @@
+.value.--good {
+  color: var(--sidebar-good-kd-ratio-text);
+}
+
+.label img {
+  width: 17.5px;
+}

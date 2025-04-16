@@ -1,0 +1,8 @@
+<div v-if="$opts[`series.hideSidebars`]" :class="['sidebar', positionClass]">
+  <Player
+    v-for="player of team.players.filter(player => player.isAlive)"
+    :key="player.steam64Id"
+    :player="player"
+    :position="position"
+  />
+</div>

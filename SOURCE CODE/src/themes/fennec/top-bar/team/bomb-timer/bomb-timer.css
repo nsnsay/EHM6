@@ -1,0 +1,55 @@
+.bomb-timer-wrapper {
+  position: relative;
+  top: 5px;
+  max-height: 15rem;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+.bomb-timer {
+  max-height: 15rem;
+  padding: 0 1.75rem;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 8px;
+  backdrop-filter: blur(4px);
+}
+
+.bomb-timer .inner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0.8rem 0;
+}
+
+.bomb-timer .status-text {
+  width: 100%;
+  max-height: 10rem;
+  border-radius: 6px;
+  margin-bottom: 0.8rem; /* 改为底部间距 */
+  padding: 0.6rem 0;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+  text-transform: uppercase;
+  line-height: 1.3;
+  color: white;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle; /* 确保垂直居中 */
+}
+
+.bomb-timer .progress-bar-background {
+  width: 95%;
+  overflow: hidden;
+}
+
+.bomb-timer .progress-bar-fill {
+  height: 100%;
+}
+
+img.planted-bomb-icon {
+  height: 1.75rem;
+  margin-right: 0.5rem; /* 添加右边距 */
+  vertical-align: middle; /* 确保垂直居中 */
+}

@@ -1,0 +1,48 @@
+<div :class="['kda-wrapper', colorClass, positionClass]" v-if="player">
+    <div class="bod">
+        <img v-if="player.hasDefuser" src="/hud/img/weapons/defuser.svg" alt="" class="defuser">
+        <img v-else-if="player.hasBomb" src="/hud/img/weapons/c4.svg" alt="" :class="['bomb', { '--active': isBombActive }]">
+        <img v-else= :src="/hud/img/weapons/defuser.svg" alt="" class="op0">
+    </div>
+
+    <div class="rk">
+        <img src="/hud/img/icons/hs.svg" alt="" class="label">
+        <span class="rkvalue">{{ player.roundKills }}</span>
+    </div>
+
+
+<!--
+    <div class="kills">
+        <img src="/hud/img/icons/crosshair.svg" alt="">
+        <span class="value" :class="{ '--good': player.hasGoodKdRatio }">
+            {{ player.kills.toString().length === 1 ? player.kills + '&nbsp;' : player.kills }}
+        </span>
+    </div>
+    <div class="deaths">
+        <img src="/hud/img/icons/kill.png" alt="">
+        <span class="value" :class="{ '--good': player.hasGoodKdRatio }">
+            {{ player.deaths.toString().length === 1 ? player.deaths + '&nbsp;' : player.deaths }}
+        </span>
+    </div>
+    <div class="assists">
+        <img src="/hud/img/icons/assist.png" alt="">
+        <span class="value" :class="{ '--good': player.hasGoodKdRatio }">
+            {{ player.assists.toString().length === 1 ? player.assists + '&nbsp;' : player.assists }}
+        </span>
+    </div>
+-->
+
+<div class="kills">
+    <span class="value" :class="{ '--good': player.hasGoodKdRatio }">
+        {{ player.kills }}/{{ player.assists }}/{{ player.deaths }}
+    </span>
+</div>
+
+    <div class="grenades">
+        <div v-for="grenade of grenades" :key="grenade.key" class="grenade">
+            <img :src="grenade.iconUrl" alt="" :class="{ '--active': grenade.isActive }">
+        </div>
+    </div>
+    
+</div>
+</div>

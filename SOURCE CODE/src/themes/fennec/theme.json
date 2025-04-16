@@ -1,0 +1,197 @@
+{
+  "parent": "raw",
+  "options": {
+    "cvars.mp_roundtime": {
+      "type": "number",
+      "fallback": 1.92,
+      "section": "Cvars",
+      "label": "Round time"
+    },
+    "cvars.mp_team_timeout_max": {
+      "type": "number",
+      "fallback": 4,
+      "section": "Cvars",
+      "label": "Timeout Max"
+    },
+    "cvars.mp_team_timeout_time": {
+      "type": "number",
+      "fallback": 30,
+      "section": "Cvars",
+      "label": "Timeout time"
+    },
+    "cvars.mp_freezetime": {
+      "type": "number",
+      "fallback": 20,
+      "section": "Cvars",
+      "label": "Freezetime Time"
+    },
+    "preferences.sidebar.teamGrenades.activeIntoRoundSec": {
+      "type": "number",
+      "fallback": 5,
+      "section": "Preferences",
+      "label": "Active seconds when game start"
+    },
+    "preferences.sidebar.teamEquipment.activeIntoRoundSec": {
+      "type": "number",
+      "fallback": 5,
+      "section": "Preferences",
+      "label": "Active seconds when game start"
+    },
+    "preferences.topBar.clock.tenSecondsRedInFreezetime": {
+      "type": "boolean",
+      "section": "Preferences",
+      "label": "Top-bar time clock when freeze time left 10s shows Red"
+    },
+    "preferences.topBar.clock.tenSecondsRedInTacticalTimeout": {
+      "type": "boolean",
+      "section": "Preferences",
+      "label": "Top-bar time clock tac-pause freeze time left 10s shows Red"
+    },
+    "preferences.topBar.clock.tenSecondsRedInRoundRestartDelay": {
+      "type": "boolean",
+      "section": "Preferences",
+      "label": "Top-bar time clock when restart time left 10s shows Red"
+    },
+    "cvars.cash_team_loser_bonus": {
+      "type": "number",
+      "fallback": 1400,
+      "section": "Cvars",
+      "label": "Loser bonus"
+    },
+    "cvars.cash_team_loser_bonus_consecutive_rounds": {
+      "type": "number",
+      "fallback": 500,
+      "section": "Cvars",
+      "label": "Loser Bonus"
+    },
+    "cvars.mp_c4timer": {
+      "type": "number",
+      "fallback": 40,
+      "section": "Cvars",
+      "label": "C4 Timer"
+    },
+    "series.name.left": {
+      "type": "string",
+      "section": "Title",
+      "label": "Series Name | Left",
+      "value": ""
+    },
+    "series.name.right": {
+      "type": "string",
+      "section": "Title",
+      "label": "Series Name | Right",
+      "value": ""
+    },
+    "series.maps.1.name": {
+      "value": "123"
+    },
+    "series.maps.1.pickTeam": {
+      "value": "123"
+    },
+    "series.maps.1.isDecider": {
+      "value": false
+    },
+    "series.maps.1.pickTeamScore": {
+      "value": 123
+    },
+    "series.maps.1.enemyTeamScore": {
+      "value": 123
+    },
+    "series.maps.2.name": {
+      "value": "123"
+    },
+    "series.maps.2.pickTeam": {
+      "value": "123"
+    },
+    "series.maps.2.isDecider": {
+      "value": true
+    },
+    "series.maps.2.pickTeamScore": {
+      "value": 123
+    },
+    "series.maps.2.enemyTeamScore": {
+      "value": 123
+    },
+    "series.maps.3.name": {
+      "type": "string",
+      "section": "Series: Map 3",
+      "label": "Map 3 Name"
+    },
+    "series.maps.3.pickTeam": {
+      "type": "string",
+      "section": "Series: Map 3",
+      "label": "Who choose the map?"
+    },
+    "series.maps.3.isDecider": {
+      "type": "boolean",
+      "section": "Series: Map 3",
+      "label": "If map 3 is decider, Turn on.",
+      "value": true
+    },
+    "series.maps.3.pickTeamScore": {
+      "type": "number",
+      "section": "Series: Map 3",
+      "label": "Map pick team score | #Write after the map"
+    },
+    "series.maps.3.enemyTeamScore": {
+      "type": "number",
+      "section": "Series: Map 3",
+      "label": "Map pick team's enemy team score | #Write after the map"
+    },
+    "series.maps.4.name": {
+      "type": "string",
+      "section": "Series: Map 4",
+      "label": "Map 4 Name"
+    },
+    "series.maps.4.pickTeam": {
+      "type": "string",
+      "section": "Series: Map 4",
+      "label": "Who choose the map?"
+    },
+    "series.maps.4.isDecider": {
+      "type": "boolean",
+      "section": "Series: Map 4",
+      "label": "If map 4 is decider, Turn on."
+    },
+    "series.maps.4.pickTeamScore": {
+      "type": "number",
+      "section": "Series: Map 4",
+      "label": "Map pick team score | #Write after the map"
+    },
+    "series.maps.4.enemyTeamScore": {
+      "type": "number",
+      "section": "Series: Map 4",
+      "label": "Map pick team's enemy team score | #Write after the map"
+    },
+    "series.maps.5.name": {
+      "type": "string",
+      "section": "Series: Map 5",
+      "label": "Map 5 Name"
+    },
+    "series.maps.5.pickTeam": {
+      "type": "string",
+      "section": "Series: Map 5",
+      "label": "Who choose the map?"
+    },
+    "series.maps.5.isDecider": {
+      "type": "boolean",
+      "section": "Series: Map 5",
+      "label": "If map 5 is decider, Turn on."
+    },
+    "series.maps.5.pickTeamScore": {
+      "type": "number",
+      "section": "Series: Map 5",
+      "label": "Map pick team score | #Write after the map"
+    },
+    "series.maps.5.enemyTeamScore": {
+      "type": "number",
+      "section": "Series: Map 5",
+      "label": "Map pick team's enemy team score | #Write after the map"
+    },
+    "teams.teamNameOverrides": {},
+    "teams.hiddenPlayers": {}
+  },
+  "optionSectionDescriptions": {
+    "Style Overrides": "NB: To apply changes, click Save, then Force HUD Refresh."
+  }
+}

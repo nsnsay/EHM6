@@ -1,0 +1,17 @@
+/* 定义根变量 */
+@font-face {
+  font-family: 'Dingtalk Jinbuti';
+  src: url(/hud/css/fonts/apht.ttf);
+  unicode-range: U+4E00-9FFF; /* 中文字符范围 */
+}
+
+@font-face {
+  font-family: 'Quantico';
+  src: url(/hud/css/fonts/qtc.ttf);
+  unicode-range: U+0000-007F; /* 基本拉丁字符范围 */
+}
+
+:root {
+  --primary-font-family: 'Dingtalk Jinbuti', 'Quantico';
+  --font-family: var(--primary-font-family), sans-serif;
+}

@@ -1,0 +1,60 @@
+.timeout-wrapper {
+  height: 120px;
+  position: relative;
+  top: 7.5px;
+  overflow: hidden;
+}
+
+.timeout-enter-active,
+.timeout-leave-active {
+  transition: 
+    height var(--fade-slow-duration) ease,
+    opacity var(--fade-slow-duration) ease;
+}
+
+.timeout-enter-from,
+.timeout-leave-to {
+  opacity: 0;
+  height: 0; /* 向上缩减至0高度 */
+}
+
+.timeout-enter-to,
+.timeout-leave-from {
+  opacity: 1;
+  height: 120px; /* 完全展开 */
+}
+
+.timeout {
+  height: 120px;
+}
+
+.timeout .inner {
+  flex-direction: column;
+  justify-content: space-evenly;
+  border-radius: 0px;
+}
+
+.timeout .label {
+  font-size: 2.25rem;
+  font-weight: 700;
+}
+
+.timeout .remaining {
+  font-size: 1.75rem;
+}
+
+.timeout .progress-bar-background {
+  margin-top: 0.5rem;
+  width: 85%;
+}
+
+.timeout.--left .inner {
+  border-radius: 10px;
+  background: linear-gradient(to right, #2424249f, #2424249f);
+}
+
+
+.timeout.--right .inner {
+  border-radius: 10px;
+  background: linear-gradient(to right, #2424249f, #2424249f);
+}

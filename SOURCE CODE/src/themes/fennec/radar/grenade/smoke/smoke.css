@@ -1,0 +1,39 @@
+.smoke {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  transform: translate(-50%, -50%); /* 确保烟雾的中心点在指定位置 */
+  transition: all 0.2s linear;
+}
+
+.smoke_particle {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 1);
+}
+
+.smoke_particle.--ct {
+  border: 3px solid var(--counter-terrorists-fill);
+}
+
+.smoke_particle.--t {
+  border: 3px solid var(--terrorists-fill);
+}
+
+.smoke {
+  opacity: 0.8;
+}
+
+.smoke.--ct {
+  filter: drop-shadow(0 0 0.75rem var(--counter-terrorists-fill));
+}
+
+.smoke.--t {
+  filter: drop-shadow(0 0 0.75rem var(--terrorists-fill));
+}
+
+.smoke:not(.--default-level) {
+  opacity: 0.75;
+}

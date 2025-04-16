@@ -1,0 +1,36 @@
+<div
+  :class="['team-grenades-wrapper', positionClass, { '--active': isActive }]"
+>
+  <div :class="['team-grenades-title', colorClass]">{{ teamTitle }}</div>
+  <div
+    :class="['team-grenades', colorClass, positionClass, { '--active': isActive }]"
+  >
+    <div
+      :class="['total', colorClass, { '--label-active': isTotalLabelActive }]"
+    >
+      <div class="value">Total {{ grenades.total }} Utility</div>
+    </div>
+
+    <div class="types">
+      <div :class="['smokegrenade', { '--active': grenades.smokegrenade }]">
+        <img src="/hud/img/weapons/smokegrenade.svg" alt="" class="label" />
+        <div class="value">x{{ grenades.smokegrenade }}</div>
+      </div>
+
+      <div :class="['molotov', { '--active': grenades.molotov }]">
+        <img :src="molotovIconUrl" alt="" class="label" />
+        <div class="value">x{{ grenades.molotov }}</div>
+      </div>
+
+      <div :class="['flashbang', { '--active': grenades.flashbang }]">
+        <img src="/hud/img/weapons/flashbang.svg" alt="" class="label" />
+        <div class="value">x{{ grenades.flashbang }}</div>
+      </div>
+
+      <div :class="['hegrenade', { '--active': grenades.hegrenade }]">
+        <img src="/hud/img/weapons/hegrenade.svg" alt="" class="label" />
+        <div class="value">x{{ grenades.hegrenade }}</div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,72 @@
+@keyframes myAnim {
+  0%,
+  50%,
+  100% {
+    opacity: 1;
+  }
+
+  25%,
+  75% {
+    opacity: 0.2;
+  }
+}
+
+.round {
+  flex: 1;
+}
+
+.round.--current {
+  color: rgb(251, 255, 0);
+}
+
+.round-number.--current {
+  border-bottom-color: rgb(251, 255, 0);
+}
+
+.round.--last-of-half {
+  border-right: 0.25rem solid rgba(255, 255, 255, 0);
+}
+
+.round-number {
+  padding: 0.2rem 0;
+  border-bottom: 0.2rem solid var(--white);
+  font-size: 1.5rem;
+}
+
+.round-number.--ct {
+  border-bottom-color: var(--counter-terrorists-border);
+  color: var(--counter-terrorists-text);
+}
+
+.round-number.--t {
+  border-bottom-color: var(--terrorists-border);
+  color: var(--terrorists-text);
+}
+
+.reason img {
+  display: block;
+  height: 2rem;
+  margin: 0.75rem auto;
+}
+
+.reason.--ct {
+  filter: url(#counter-terrorists-fill-from-white-filter);
+}
+
+.reason.--t {
+  opacity: 0;
+}
+
+.reason2 img {
+  display: block;
+  height: 2rem;
+  margin: 0.75rem auto;
+}
+
+.reason2.--ct {
+  opacity: 0;
+}
+
+.reason2.--t {
+  filter: url(#terrorists-fill-from-white-filter);
+}

@@ -1,0 +1,52 @@
+.map-wins {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.map-wins.--left {
+  grid-area: map-wins-left;
+}
+
+.map-wins.--right {
+  grid-area: map-wins-right;
+}
+
+.map-wins .pip {
+  width: 1.8rem;
+  height: 0.75rem;
+  aspect-ratio: 1;
+  margin: 0.3rem;
+
+  border-radius: 15px;
+}
+
+.map-wins .pip--one {
+  width: 4rem;
+  height: 0.75rem;
+  aspect-ratio: 1;
+  margin: 0.3rem;
+}
+
+.map-wins .pip--three {
+  width: 1.2rem;
+  height: 0.6rem;
+  aspect-ratio: 1;
+  margin: 0.2rem;
+}
+
+.map-wins.--ct .pip {
+  background-color: #a1a1a1;
+}
+
+.map-wins.--ct .pip.--filled {
+  background-color: #07f7ff;
+}
+
+.map-wins.--t .pip {
+  background-color: #a1a1a1;
+}
+
+.map-wins.--t .pip.--filled {
+  background-color: #e46f10;
+}

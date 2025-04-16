@@ -1,0 +1,57 @@
+<!-- player.html -->
+<div
+  :class="['player-wrapper', positionClass, {'dead': !player.isAlive}, {'--focused': player.isFocused},  { 'last-man-standing': isLastManStanding }]"
+>
+  <div
+    :class="['player', positionClass, { dead: !player.isAlive }, {'--focused': player.isFocused}, { 'low': player.health < 25 },  { 'last-man-standing': isLastManStanding }]"
+  >
+    <div
+      v-if="showDamage"
+      :class="['damage-indicator', { active: showDamage }]"
+      @animationend="resetDamage"
+    >
+      -{{ totalDamage }}
+    </div>
+
+    <div
+      v-if="$opts['series.ShowPlayerAgentAvatars']"
+      :class="['bodyshot', {'dead': !player.isAlive}]"
+    >
+      <img
+        :class="['logo', positionClass, colorClass, { '--active': logoImageLoaded }]"
+        :src="getCustomPlayerLogo(player.name)"
+        alt=""
+        @error="handleImageError"
+        @load="logoImageLoaded = true"
+      />
+    </div>
+
+    <div v-if="player.roundKills" :class="['round-kills', positionClass]">
+      <img src="/hud/img/icons/hs.svg" alt="" class="label" />
+      <div class="value">{{ player.roundKills }}</div>
+    </div>
+
+    <div class="bomb-or-defuser">
+      <Transition name="fast" mode="out-in">
+        <img
+          v-if="player.hasDefuser"
+          src="/hud/img/weapons/defuser.svg"
+          alt=""
+          class="defuser"
+        />
+        <img
+          v-else-if="player.hasBomb"
+          src="/hud/img/weapons/c4.svg"
+          alt=""
+          :class="['bomb', { '--active': isBombActive }]"
+        />
+      </Transition>
+    </div>
+
+    <newname :player="player" :position="position" />
+    <newhealth :player="player" :position="position" />
+    <newkd :player="player" :position="position" />
+    <newmoney :player="player" :position="position" />
+    <healthbar :player="player" :position="position" />
+  </div>
+</div>

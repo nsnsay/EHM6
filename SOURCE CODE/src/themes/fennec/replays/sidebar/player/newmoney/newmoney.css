@@ -1,0 +1,19 @@
+.newmoney {
+  grid-area: newmoney;
+
+  padding: 0.5rem;
+  align-self: center;
+  font-size: 1.5rem;
+  color: var(--sidebar-player-money-text);
+
+  align-self: center;
+  align-items: center;
+  justify-content: center;
+  justify-self: center;
+
+  display: none;
+}
+
+.newmoney.--right {
+  text-align: center;
+}

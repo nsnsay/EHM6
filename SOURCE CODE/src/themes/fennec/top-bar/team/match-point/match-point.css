@@ -1,0 +1,52 @@
+.match-point-wrapper {
+  max-height: var(--top-bar-row-height);
+  position: relative;
+  top: 0px;
+  overflow: visible;
+}
+
+.match-point {
+  height: var(--top-bar-row-height);
+
+  font-family: var(--fyt);
+
+  font-weight: 700;
+  letter-spacing: 0.5rem;
+  text-transform: uppercase;
+  font-size: 2.25rem;
+
+  height: 155%;
+
+  background: #2424249f;
+  opacity: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: repeat;
+
+  top: 5px;
+  border-top: 5px solid rgba(101, 5, 226, 0.85);
+}
+
+.match-point.--left {
+  border-radius: 15px;
+}
+
+.match-point.--right {
+  border-radius: 15px;
+}
+
+img.logo {
+  display: flex;
+  max-height: calc(100% - var(--top-bar-team-logo-vertical-spacing) * 2);
+  opacity: 0.5;
+}
+
+img.logo.--left {
+  position: relative;
+  left: 0px;
+}
+
+img.logo.--right {
+  position: relative;
+  left: 0px;
+}

@@ -1,0 +1,230 @@
+/* player.css */
+.player-wrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 115px; /* 确保每行的高度自动调整 */
+  grid-gap: 5px;
+  border-radius: 8px;
+  overflow: hidden; /* 防止伪元素内容溢出 */
+  grid-template-areas: 'player';
+}
+
+.player {
+  transition: transform 0.5s ease;
+
+  grid-area: player;
+  display: grid;
+  position: relative; /* 设置相对定位，以便伪元素可以相对于它定位 */
+  filter: var(--filter-drop-shadow);
+  font-size: 1.7rem;
+  z-index: 1; /* 确保内容在伪元素上方 */
+  border-radius: 8px !important;
+
+  height: 115px;
+  width: 130px;
+
+  background: rgba(0, 0, 0, 0.5);
+
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 1fr 1.2fr 1fr 1fr; /* 确保每行的高度自动调整 */
+  grid-template-areas:
+    'newhealth'
+    'newmoney'
+    'newname'
+    'newkd';
+}
+
+.bodyshot {
+  position: absolute;
+  z-index: 0; /* 确保bodyshot在newname和newhealth的下方 */
+  bottom: -40px;
+  left: 0;
+
+  width: 150px;
+  height: 150px;
+
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+}
+
+.bodyshot.dead img {
+  filter: contrast(15%);
+}
+
+.bodyshot img {
+  width: 130px;
+  height: 130px;
+
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+
+  opacity: 1;
+
+  mask-image: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 1) 40%,
+    rgba(255, 255, 255, 0.2) 100%
+  ); /* 上半部分不透明，下半部分透明 */
+}
+
+.player-wrapper.--focused {
+  outline: 3.5px solid white;
+
+  z-index: 10007;
+}
+
+.player-wrapper.--focused.dead {
+  outline: none;
+}
+
+.player.dead {
+  transition: all 1.5s;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.05));
+}
+
+@keyframes myAnim {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+}
+
+@keyframes myAnim2 {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+}
+
+.utility {
+  background: rgba(52, 52, 52, 0.6) !important;
+  display: grid;
+  border-radius: 5px;
+  grid-template-columns: auto auto; /* 为 primary 和 secondary 分配宽度 */
+  grid-template-areas: 'primary grenades';
+}
+
+.utility.dead {
+  display: none;
+}
+
+.grenades {
+  grid-area: grenades;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 5px;
+}
+
+.grenades .grenade img {
+  height: 1.7rem;
+  transition: opacity var(--fade-fast-duration) ease;
+}
+
+.grenades .grenade img:not(.--active) {
+  opacity: 0.6;
+}
+
+.grenades .grenade {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.round-kills {
+  grid-area: round-kills;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  position: absolute; /* 将round-kills设置为绝对定位 */
+  bottom: 5px; /* 调整top值，使round-kills位于newname上方 */
+  left: 15%; /* 水平居中 */
+  transform: translateX(-50%);
+}
+
+.round-kills.--right {
+  justify-content: flex-end;
+}
+
+img.label {
+  height: 1.75rem;
+  margin-right: 0.25rem;
+}
+
+.value {
+  font-size: 1.6rem;
+}
+
+.bomb-or-defuser {
+  grid-area: round-kills;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  position: absolute; /* 将round-kills设置为绝对定位 */
+  bottom: 5px; /* 调整top值，使round-kills位于newname上方 */
+  left: 15%; /* 水平居中 */
+  transform: translateX(-50%);
+
+  padding-left: 190px;
+}
+
+.bomb-or-defuser img {
+  height: 1.75rem;
+  margin-right: 0.25rem;
+
+  padding: 3px 3px;
+
+  background: rgba(52, 52, 52, 0.4);
+
+  border-radius: 70px;
+}
+
+.newname {
+  z-index: 150;
+}
+
+.newhealth {
+  z-index: 150;
+}
+
+.damage-indicator {
+  position: absolute;
+  top: -15px;
+  /* 从上方显示 */
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition:
+    opacity 0.5s ease,
+    transform 0.5s ease;
+  font-size: 2.5rem;
+  color: rgb(255, 255, 255);
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.8);
+  pointer-events: none;
+
+  z-index: 1000000;
+}
+
+.damage-indicator.active {
+  opacity: 1;
+  transform: translateX(-50%) translateY(-20px);
+}
+
+.damage-indicator.fade-out {
+  opacity: 0;
+  transform: translateX(-50%) translateY(-40px);
+}

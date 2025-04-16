@@ -1,0 +1,140 @@
+.team-grenades-wrapper {
+  font-family: var(--fyt);
+  width: 350px;
+  max-height: 7rem;
+
+  filter: var(--filter-drop-shadow);
+  overflow: hidden;
+  transition: max-height var(--fade-slow-duration) ease;
+  align-items: center;
+}
+
+.team-grenades-wrapper:not(.--active) {
+  max-height: 0;
+}
+
+.team-grenades-wrapper.--right {
+  margin-left: auto;
+  align-items: center;
+
+  position: absolute;
+  bottom: 20rem;
+  right: 25px;
+}
+
+.team-grenades-wrapper.--left {
+  align-items: center;
+
+  position: absolute;
+  bottom: 20rem;
+  left: 25px;
+}
+
+.team-grenades-title {
+  background-color: var(--counter-terrorists-fill-100);
+  color: white;
+  padding: 10px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 5px 5px 0 0; /* 顶部圆角 */
+}
+
+.team-grenades-title.--t {
+  background-color: var(--terrorists-fill-100);
+  color: white;
+  padding: 10px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 5px 5px 0 0; /* 顶部圆角 */
+}
+
+.team-grenades {
+  box-shadow: var(--box-shadow);
+  display: flex;
+  margin-bottom: 0.5rem;
+
+  background: linear-gradient(to right, #2424249f, #2424249f);
+  opacity: 100%;
+  background-size: cover; /* 使背景图片覆盖整个元素 */
+  background-position: bottom; /* 将背景图片居中 */
+  background-repeat: no-repeat; /* 防止背景图片重复 */
+
+  transition: transform var(--fade-slow-duration) ease;
+  align-items: center;
+
+  border-radius: 0 0 3px 3px; /* 底部圆角 */
+}
+
+.team-grenades.--right {
+  flex-direction: row-reverse;
+}
+
+.team-grenades:not(.--active) {
+  transform: translateY(101%);
+}
+
+.types {
+  flex: 1;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+  background: var(rgb(255, 255, 255, 1));
+}
+
+.total,
+.smokegrenade,
+.molotov,
+.flashbang,
+.hegrenade {
+  display: flex;
+  align-items: center;
+
+  padding: 0.65rem 1rem;
+  font-size: 1.5rem;
+  transition: opacity var(--fade-default-duration) ease;
+}
+
+.smokegrenade:not(.--active),
+.molotov:not(.--active),
+.flashbang:not(.--active),
+.hegrenade:not(.--active) {
+  opacity: 0.5;
+}
+
+.total.--ct {
+  background: var(--counter-terrorists-text-fill);
+}
+
+.total.--t {
+  background: var(--terrorists-text-fill);
+}
+
+.total {
+  display: grid;
+  grid-template-columns: max-content 0fr;
+  transition: grid-template-columns var(--fade-slow-duration) ease;
+}
+
+.total.--label-active {
+  grid-template-columns: max-content 1fr;
+}
+
+.total .label-wrapper {
+  overflow: hidden;
+}
+
+.total .label {
+  padding-left: 0.25em;
+}
+
+.smokegrenade img.label,
+.molotov img.label,
+.flashbang img.label,
+.hegrenade img.label {
+  height: 1.5rem;
+  margin-right: 0.75rem;
+}

@@ -1,0 +1,72 @@
+.newhealth {
+  grid-area: newhealth; /* 确保与 player.--left 的 grid-template-areas 一致 */
+  display: grid;
+  grid-template-columns: 0.3fr 0fr; /* 将两列设置为均分宽度 */
+  grid-template-rows: 1fr; /* 只有一行 */
+  grid-template-areas: 'newhea1th newarmor';
+  align-self: center;
+  align-items: center;
+  justify-content: center;
+  justify-self: center;
+  gap: 5px;
+  width: 100%; /* 确保宽度占满整个网格单元格 */
+}
+
+.round-damage {
+  display: flex;
+  align-self: center;
+  align-items: center;
+  justify-content: center;
+  justify-self: center;
+
+  font-size: 15px;
+}
+
+.title {
+  align-self: center;
+  align-items: center;
+  justify-content: center;
+  justify-self: center;
+  text-align: center; /* 文本居中 */
+  color: rgb(215, 215, 215);
+}
+
+.dig {
+  align-self: self-end;
+  align-items: center;
+  justify-content: center;
+  justify-self: center;
+  text-align: center; /* 文本居中 */
+  color: rgb(197, 197, 197);
+}
+
+.newhea1th {
+  grid-area: newhea1th;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* 水平居中 */
+  color: rgb(255, 255, 255);
+  text-shadow: 1px 1px 2px black;
+  width: 100%; /* 确保宽度占满整个网格单元格 */
+
+  font-size: 19px;
+}
+
+.newarmor {
+  grid-area: newarmor;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* 水平居中 */
+  width: 100%; /* 确保宽度占满整个网格单元格 */
+}
+
+img {
+  height: 1.5rem;
+}
+
+.round-money-spent {
+  padding: 0.5rem;
+  align-self: center;
+  font-size: 1.5rem;
+  color: var(--sidebar-round-money-spent-text);
+}

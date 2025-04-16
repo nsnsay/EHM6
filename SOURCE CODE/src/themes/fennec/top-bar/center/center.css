@@ -1,0 +1,12 @@
+.center {
+  grid-area: center;
+  display: grid;
+  grid-template-columns: 0.8fr 1.5fr 0.8fr;
+  grid-template-rows: 5fr;
+  grid-template-areas: 'score-left current-round score-right';
+  background: linear-gradient(to right, #2424249f, #2424249f);
+
+  height: 68px;
+
+  border-radius: 8px;
+}

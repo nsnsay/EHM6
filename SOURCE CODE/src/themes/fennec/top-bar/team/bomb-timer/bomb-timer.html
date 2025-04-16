@@ -1,0 +1,34 @@
+<Transition name="top-bar-team-panel-slide">
+  <div
+    v-if="isBombTimerPanelActive"
+    :class="['top-bar-team-panel-wrapper', 'bomb-timer-wrapper', positionClass, colorClass]"
+    pad="2"
+  >
+    <div :class="['top-bar-team-panel', 'bomb-timer', positionClass]">
+      <div class="inner">
+        <div v-if="!(team.side === 2 && $bomb.state === 'defusing')" class="status-text">
+          <img class="planted-bomb-icon" src="/hud/img/icons/planted-bomb.svg" alt="" />
+          <template v-if="team.side === 2">
+            <span v-if="$bomb.state === 'planting'">PLANTING : {{ integer($bomb.countdownSec) }}s</span>
+            <span v-else-if="$bomb.state === 'planted'">PLANTED : {{ integer($bomb.plantedCountdownSec) }}s</span>
+          </template>
+          <template v-else-if="team.side === 3">
+            <div v-if="$bomb.state === 'defusing'">
+              <div>DEFUSING!</div>
+              <div>EXPLODING : {{ integer($bomb.plantedCountdownSec) }}s</div>
+            </div>
+          </template>
+        </div>
+        <ProgressBar
+          v-if="!(team.side === 2 && $bomb.state === 'defusing')"
+          :class="timer"
+          :colorClass="bombTimerColorClass"
+          :direction="position"
+          :max="bombTimerMaxValue"
+          :skew="position"
+          :value="bombTimerValue"
+        />
+      </div>
+    </div>
+  </div>
+</Transition>

@@ -1,0 +1,110 @@
+.team-equipment-wrapper {
+  max-height: 15rem; /* 调整为与其他组件一致的高度 */
+  width: 100%; /* 添加固定宽度 */
+  filter: var(--filter-drop-shadow);
+  overflow: hidden;
+  transition: all var(--fade-slow-duration) linear;
+
+  padding: 2px 2px;
+}
+
+.team-equipment-wrapper:not(.--active) {
+  max-height: 0;
+}
+
+.team-equipment-wrapper.--left {
+  position: relative;
+  top: 7.5px;
+}
+
+.team-equipment-wrapper.--right {
+  position: relative;
+  top: 7.5px;
+}
+
+
+.team-equipment-title {
+  background-color: var(--counter-terrorists-fill-100);
+  color: white;
+  padding: 10px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.team-equipment-title.--t {
+  background-color: var(--terrorists-fill-100);
+}
+
+.team-equipment {
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem 1rem;
+  height: 100%; /* 确保内容填满容器 */
+  transition: transform var(--fade-slow-duration) ease;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.team-equipment:not(.--active) {
+  transform: translateY(101%);
+  transform-origin: bottom;
+}
+
+.money-row {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  margin-top: 0.5rem;
+}
+
+.team-money, 
+.equipment-value {
+  width: 48%;
+  text-align: center;
+}
+
+.loss-bonus {
+  width: 100%;
+  text-align: center;
+}
+
+.loss-bonus .pips-and-value {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.loss-bonus .label,
+.team-money .label,
+.equipment-value .label {
+  margin-bottom: 0.4rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: 0.125em;
+  text-transform: uppercase;
+}
+
+.loss-bonus .value,
+.team-money .value,
+.equipment-value .value {
+  font-size: 1.75rem;
+}
+
+.loss-bonus .pips {
+  display: flex;
+  align-items: center;
+}
+
+.loss-bonus .pips .pip {
+  width: 1rem;
+  height: 1rem;
+  aspect-ratio: 1;
+  border: 0.2rem solid var(--white);
+  margin: 0.3rem;
+  border-radius: 50%;
+}
+
+.loss-bonus .pips .pip.--filled {
+  background: var(--white);
+}

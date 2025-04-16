@@ -1,0 +1,14 @@
+.rad {
+  position: fixed; /* 使元素相对于视口固定 */
+  top: 3.5rem; /* 距离顶部 1rem（可以根据需要调整） */
+  left: 1rem; /* 距离左侧 1rem（可以根据需要调整） */
+  justify-content: center;
+  align-items: center;
+  z-index: 10; /* 确保它在 name-row 上方 */
+  background-color: rgba(0, 0, 0, 0.4);
+
+  box-shadow: 0 0 5px rgba(63, 61, 134, 0.75);
+
+  border-radius: 7px;
+  /* 其他样式保持不变 */
+}

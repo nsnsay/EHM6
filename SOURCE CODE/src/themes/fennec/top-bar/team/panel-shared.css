@@ -1,0 +1,64 @@
+.top-bar-team-panel-wrapper {
+  display: grid;
+  grid-template-rows: 1fr;
+
+  overflow: visible clip;
+  transition:
+    max-height var(--fade-default-duration) ease,
+    transform var(--fade-default-duration) ease;
+}
+
+.top-bar-team-panel-wrapper::before {
+  content: '';
+  display: block;
+}
+
+.top-bar-team-panel-wrapper.--left {
+  grid-template-columns: 2rem 1fr;
+}
+
+.top-bar-team-panel-wrapper.--right {
+  grid-template-columns: 1fr 2rem;
+}
+
+.top-bar-team-panel-wrapper.--right::before {
+  grid-area: 1/2;
+}
+
+.top-bar-team-panel-wrapper .inner {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.top-bar-team-panel {
+  display: flex;
+  height: 100%;
+  position: relative; /* 设置相对定位，以便伪元素可以相对于它定位 */
+  overflow: hidden; /* 防止伪元素内容溢出 */
+}
+
+.top-bar-team-panel.--left .inner {
+  transform: skewX(0deg);
+}
+
+.top-bar-team-panel.--right .inner {
+  transform: skewX(0deg);
+}
+
+.top-bar-team-panel-slide-enter-active .top-bar-team-panel,
+.top-bar-team-panel-slide-leave-active .top-bar-team-panel {
+  transform-origin: top;
+  transition: transform var(--fade-default-duration) ease;
+}
+
+.top-bar-team-panel-slide-enter-from,
+.top-bar-team-panel-slide-leave-to {
+  max-height: 0 !important;
+}
+
+.top-bar-team-panel-slide-enter-from .top-bar-team-panel,
+.top-bar-team-panel-slide-leave-to .top-bar-team-panel {
+  transform: translateY(-100%);
+}

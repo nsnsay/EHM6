@@ -1,0 +1,21 @@
+<div v-if="$opts['series.ShowAds']" :class="admodule-container">
+  <div :class="['admodule']">
+    <img
+      :class="['logo', positionClass, colorClass, { '--active': logoImageLoaded }]"
+      :src="`/hud/adImgs/1xbet.png`"
+      alt=""
+      @error="handleImageError"
+      @load="logoImageLoaded = true"
+    />
+  </div>
+
+  <div :class="['admodule-right']">
+    <img
+      :class="['logo-right', positionClass, colorClass, { '--active': logoImageLoaded }]"
+      :src="`/hud/adImgs/1xbet.png`"
+      alt=""
+      @error="handleImageError"
+      @load="logoImageLoaded = true"
+    />
+  </div>
+</div>

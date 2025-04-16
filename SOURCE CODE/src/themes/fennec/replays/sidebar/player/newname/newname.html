@@ -1,0 +1,7 @@
+<div
+  :class="['observer-slot', positionClass, colorClass, { dead: !player.isAlive }, {'--focused': player.isFocused}]"
+>
+  {{ player.observerSlot }}
+</div>
+
+<div :class="['newname', positionClass]">{{ shortName }}</div>

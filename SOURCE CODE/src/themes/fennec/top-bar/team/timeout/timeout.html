@@ -1,0 +1,27 @@
+<Transition name="timeout" mode="out-in">
+  <div
+    v-if="isTimeoutPanelActive"
+    :class="['top-bar-team-panel-wrapper', 'timeout-wrapper', positionClass, colorClass]"
+    pad="2"
+  >
+    <div :class="['top-bar-team-panel', 'timeout', positionClass]">
+      <div class="inner">
+        <div :class="['label']">Tactical Pause</div>
+
+        <div class="remaining">
+          Pause Remaining {{ team.timeoutsRemaining }} / {{
+            $round.isOvertime ? 1 : $opts['cvars.mp_team_timeout_max']
+          }}
+        </div>
+
+        <ProgressBar
+          :colorClass="colorClass"
+          :direction="position"
+          :max="$opts['cvars.mp_team_timeout_time']"
+          :skew="position"
+          :value="isActiveTimeoutForThisTeam ? $round.phaseEndsInSec : $opts['cvars.mp_team_timeout_time']"
+        />
+      </div>
+    </div>
+  </div>
+</Transition>

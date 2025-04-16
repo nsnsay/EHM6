@@ -1,0 +1,14 @@
+.health {
+  grid-area: health;
+  padding: 0.5rem;
+
+  display: flex;
+  align-items: center;
+
+  text-shadow: 0 0 11px rgba(255, 255, 255, 0.9);
+}
+
+.health.low {
+  color: #e91111bc;
+  text-shadow: 0 0 11px rgba(201, 4, 86, 0.9);
+}

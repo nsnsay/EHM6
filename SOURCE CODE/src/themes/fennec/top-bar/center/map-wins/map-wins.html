@@ -1,0 +1,16 @@
+<div
+  v-if="$opts[`series.hideTotalScores`]"
+  :class="['map-wins', positionClass, colorClass]"
+>
+  <div
+    v-for="(pip, index) in pips"
+    :class="[
+			'pip', 
+			{ 
+				'--filled': pip, 
+				'pip--three': pips.length === 3 && index < 3,
+				'pip--one': pips.length === 1 && index <1
+			}
+		]"
+  ></div>
+</div>

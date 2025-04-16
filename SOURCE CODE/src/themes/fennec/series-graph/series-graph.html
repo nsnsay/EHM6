@@ -1,0 +1,52 @@
+<div v-if="$opts[`series.hidemapName`]" :class="['series-graph-wrapper', { '--active': isActive }]">
+  <div class="header-row">
+    <img src="/hud/img/google/map.svg" class="header-icon" />
+    <img src="/hud/img/google/pick.svg" class="header-icon" />
+    <img src="/hud/img/google/status.svg" class="header-icon" />
+  </div>
+    <div 
+    v-for="mapNumber in seriesMapNumbers"
+    :key="'grid-'+mapNumber"
+    class="series-grid"
+    :class="{ 'current-map': isCurrentMap(mapNumber) }"
+    :style="{
+      backgroundImage : `url(/hud/img/maps/${($opts[`series.maps.${mapNumber}.name`])}.webp)`
+    }"
+  >
+    <!-- 地图logo -->
+    <img 
+      :src="`/hud/img/maps/${($opts[`series.maps.${mapNumber}.name`])}_logo.png`"
+      class="map-logo"
+    />
+    
+    <!-- 地图名称 -->
+    <div class="map-name">
+      {{ formatMapName($opts[`series.maps.${mapNumber}.name`]) }}
+    </div>
+    
+    <!-- 队伍队标 -->
+    <div class="team-logo-container">
+      <img 
+        v-if="!isDecider(mapNumber)"
+        :src="`/custom/team-logos/${$opts[`series.maps.${mapNumber}.pickTeam`]}.png`"
+        class="team-logo"
+      />
+    </div>
+    
+    
+    <!-- 状态/比分 -->
+    <div class="map-status">
+      <span v-if="isCurrentMap(mapNumber)" class="live-indicator">Playing</span>
+      <span v-if="isDecider(mapNumber)" class="decider-indicator">Decider</span>
+      <div v-else-if="hasValidScores(mapNumber)" class="score-container">
+        <span :class="['score', getScoreClasses(mapNumber).pickTeamClass]">
+          {{ $opts[`series.maps.${mapNumber}.pickTeamScore`] }}
+        </span>
+        <span class="score-separator">:</span>
+        <span :class="['score', getScoreClasses(mapNumber).enemyTeamClass]">
+          {{ $opts[`series.maps.${mapNumber}.enemyTeamScore`] }}
+        </span>
+      </div>
+    </div>
+  </div>
+</div>

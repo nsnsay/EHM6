@@ -1,0 +1,335 @@
+.name-row {
+  position: fixed;
+  left: 50%; /* 使用居中定位 */
+  transform: translateX(-50%); /* 确保元素居中 */
+
+  height: 150px;
+  width: 300px;
+
+  font-size: 17px; /* 字体大小 */
+
+  white-space: nowrap;
+  /* border-bottom: 5px solid var(--counter-terrorists-fill-100); */
+
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 30px 120px; /* 确保每行的高度自动调整 */
+  grid-template-areas:
+    'health-bar'
+    'player-info';
+}
+
+.health-bar {
+  grid-area: health-bar;
+  width: 300px;
+  height: 30px;
+  background: rgba(177, 177, 177, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* 确保元素在两侧 */
+}
+
+.health-container {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.health-bar-bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, #333, #555);
+}
+
+.health-bar-fill {
+  position: absolute;
+  height: 100%;
+  background: linear-gradient(to right, #68a3e5, #68a3e5);
+  transition: width 0.3s ease; /* 添加平滑过渡效果 */
+}
+
+.health-bar-fill.no-transition {
+  transition: none;
+}
+
+.health-bar-fill.--t {
+  background: linear-gradient(to right, #eda338, #eda338);
+}
+
+.health-bar-fill.low-health {
+  background: linear-gradient(to right, #b82717, #b32f20);
+  animation: pulse 1s infinite;
+}
+
+.health-info {
+  position: absolute;
+  left: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.health-value {
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  text-shadow: 1px 1px 2px black;
+  transition: opacity 0.3s ease; /* 数值显示的透明度过渡 */
+}
+
+@keyframes pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.7; }
+  100% { opacity: 1; }
+}
+
+.player-info {
+  grid-area: player-info;
+  width: 300px;
+  height: 120px;
+
+  background: rgba(0, 0, 0, 0.7);
+
+  border-radius: 0px 0px 8px 0px;
+}
+
+.name-row.--t {
+  /* border-bottom: 5px solid var(--terrorists-fill-100); */
+}
+
+.armor-and-health {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+}
+
+.armor img {
+  align-items: center;
+  padding-right: 5px;
+}
+
+.player-name {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-width: fit-content;
+  color: #68a3e5;
+
+  font-size: 22px;
+
+  font-weight: 900;
+
+  position: absolute;
+  bottom: 65px;
+  left: 15px;
+}
+
+.player-name.--t {
+  color: #eda338;
+}
+
+.ammo {
+  justify-content: center;
+  text-align: center;
+  display: flex;
+  letter-spacing: 0ch;
+  font-size: 18px;
+  color: #68a3e5;
+  position: absolute;
+  right: 15px;
+  top: 100px;
+}
+
+.ammo.--t {
+  color: #eda338;
+}
+
+.kills {
+  display: flex; /* 确保子元素使用弹性布局 */
+  align-items: center; /* 图标与文字对齐 */
+
+  font-size: 17px;
+
+  position: absolute;
+  left: 10px;
+  top: 95px;
+}
+
+.beidan {
+  font-size: 13px;
+  text-align: start;
+  color: #bababa;
+}
+
+.noammo {
+  font-size: 17px;
+  text-align: start;
+}
+
+.ammo img {
+  width: 20px;
+  padding-right: 5px;
+}
+
+.ammoc {
+  font-size: 20px;
+  color: #68a3e5;
+}
+
+.ammoc.--t {
+  font-size: 20px;
+  color: #eda338;
+}
+
+.bodyshot {
+  position: fixed;
+  z-index: 0; /* 确保bodyshot在name-row的左侧 */
+  right: 0; /* 与name-row的中心对齐 */
+  transform: translateX(-300px); /* 向左移动一个bodyshot的宽度 */
+  bottom: 0; /* 与name-row的顶部对齐 */
+
+  background: rgba(0, 0, 0, 0.45);
+
+  width: 150px;
+  height: 150px;
+
+  border: 4px solid #68a3e5;
+}
+
+.bodyshot.--t {
+  border: 4px solid #eda338;
+}
+
+.bodyshot.dead img {
+  display: none;
+}
+
+.bodyshot img {
+  width: 150px;
+  height: 150px;
+
+  opacity: 1;
+}
+
+
+.rk {
+  display: flex; /* 确保子元素使用弹性布局 */
+  align-items: center; /* 图标与文字对齐 */
+
+  position: absolute;
+  left: 10px;
+  bottom: 55px;
+}
+
+.rk img {
+  width: 20px; /* 根据需要调整图像大小 */
+  padding-right: 0.3rem;
+}
+
+.bod {
+  position: absolute;
+  top: 60px;
+  left: 120px;
+}
+
+.bod img {
+  height: 2.5rem;
+  transition: opacity var(--fade-fast-duration) ease;
+}
+
+img.defuser {
+  opacity: 0.5;
+}
+
+.bod img.bomb:not(.--active) {
+  opacity: 0.5;
+}
+
+.op0 {
+  opacity: 0;
+}
+
+.weapons {
+  position: absolute;
+  right: 15px;
+  top: 35px;
+}
+
+.primary {
+  grid-area: primary;
+
+  display: flex;
+  align-items: center;
+  padding-left: 5px;
+}
+
+.primary img {
+  height: 3rem;
+  transition: opacity var(--fade-fast-duration) ease;
+}
+
+.primary img:not(.--active) {
+  opacity: 0.5;
+}
+
+.secondary {
+  grid-area: primary;
+
+  display: flex;
+  align-items: center;
+  padding-left: 5px;
+}
+
+.secondary img {
+  height: 2rem;
+  transition: opacity var(--fade-fast-duration) ease;
+}
+
+.secondary img:not(.--active) {
+  opacity: 0.5;
+}
+
+.grenades {
+  display: flex;
+  align-items: center;
+  align-self: center;
+  padding-left: 15px;
+  transition: all 1s;
+
+  position: absolute;
+  top: 95px;
+  right: 90px;
+}
+
+.grenades .grenade img:not(.--active) {
+  opacity: 0.5;
+}
+
+.grenades .grenade img {
+  height: 2rem;
+  padding-right: 5px;
+  margin-right: 2px;
+}
+
+.newmoney {
+  position: absolute;
+  top: 65px;
+  left: 15px;
+  padding-left: 0.5rem;
+  align-self: center;
+  font-size: 1.5rem;
+  color: var(--sidebar-player-money-text);
+
+  align-self: center;
+  align-items: center;
+  justify-content: center;
+  justify-self: center;
+}
+
+
+
+
+img {
+  height: 15px;
+}

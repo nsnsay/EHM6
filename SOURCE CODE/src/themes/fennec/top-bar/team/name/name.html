@@ -1,0 +1,21 @@
+<div :class="['top-bar-team-panel-wrapper', 'name-wrapper', positionClass, colorClass]">
+  <div :class="['top-bar-team-panel', 'name', positionClass, colorClass]">
+    <img
+      :class="['logo', positionClass, colorClass, { '--active': logoImageLoaded }]"
+      :src="`/custom/team-logos/${team.name}.png`"
+      alt=""
+      @error="logoImageLoaded = false"
+      @loaded="logoImageLoaded = true"
+      @loading="logoImageLoaded = false"
+    />
+    <div class="inner">{{ team.name }}</div>
+    <Transition name="round-winner">
+      <div 
+        v-if="isRoundWinnerPanelActive"
+        :class="['round-winner-panel', positionClass, colorClass]"
+      >
+        ROUND WINNER
+      </div>
+    </Transition>
+  </div>
+</div>

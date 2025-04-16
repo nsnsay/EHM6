@@ -1,0 +1,86 @@
+@keyframes myAnim {
+  0% {
+    opacity: 0;
+
+    transform: scale(0.9);
+    height: 0%;
+  }
+
+  100% {
+    opacity: 1;
+    height: 140px;
+    transform: scale(1);
+  }
+}
+
+.round-winner-wrapper {
+  font-weight: 700;
+  letter-spacing: 0.5em;
+  text-transform: uppercase;
+  font-size: 2.25rem;
+  animation: myAnim 0.333s ease-in 0.333s 1 normal backwards;
+  max-height: var(--top-bar-row-height);
+  position: relative;
+  overflow: visible;
+}
+
+.round-winner {
+  height: var(--top-bar-row-height);
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  width: 100%;
+  height: 160px;
+  top: 5px;
+
+  animation: myAnim 0.333s ease-in 0.333s 1 normal backwards;
+
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 110px 30px; /* 确保每行的高度自动调整 */
+  grid-gap: 15px;
+  grid-template-areas:
+    'inner'
+    'outer';
+}
+
+.round-winner.--ct {
+  background: linear-gradient(to right, #2424249f, #2424249f);
+
+  border-radius: 15px;
+
+  color: var(--white);
+}
+
+.round-winner.--t {
+  background: linear-gradient(to right, #2424249f, #2424249f);
+  border-radius: 15px;
+
+  color: var(--white);
+}
+
+.outer {
+  background: var(--counter-terrorists-fill-100);
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  padding: 0.8rem 0.8rem;
+
+  height: 30px;
+}
+
+.outer.--t {
+  background: var(--terrorists-fill-100);
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.inner {
+  margin: 0 auto;
+}
+
+img.logo {
+  width: 80px;
+  opacity: 0.6;
+}

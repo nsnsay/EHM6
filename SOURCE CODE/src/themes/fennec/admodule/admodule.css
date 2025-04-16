@@ -1,0 +1,35 @@
+.admodule {
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  right: 25px;
+  bottom: 27.5rem;
+
+  width: 350px;
+  height: 150px;
+
+  z-index: -100000;
+}
+
+img.logo {
+  width: 350px;
+  height: 150px;
+}
+
+.admodule-right {
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  left: 25px;
+  bottom: 27.5rem;
+
+  width: 350px;
+  height: 150px;
+
+  z-index: -100000;
+}
+
+img.logo-right {
+  width: 350px;
+  height: 150px;
+}

@@ -1,0 +1,122 @@
+<div
+  v-if="player.isAlive"
+  :class="['bodyshot', {'dead': !player.isAlive}, positionClass, colorClass]"
+>
+  <img
+    :class="['logo', positionClass, colorClass, { '--active': logoImageLoaded }]"
+    :src="getCustomPlayerLogo(player.name, player.steam64Id)"
+    alt=""
+    @error="handleImageError"
+    @load="logoImageLoaded = true"
+  />
+
+<div class="rk">
+  <img src="/hud/img/icons/hs.svg" alt="" class="label">
+  <span class="rkvalue">{{ player.roundKills }}</span>
+</div>
+</div>
+
+<div :class="['name-row', colorClass, { 'shake': isShaking }]" v-if="player.isAlive">
+
+  <div :class="['health-bar', colorClass, positionClass]">
+    <div class="health-container">
+      <div class="health-bar-bg"></div>
+      <div 
+        :class="['health-bar-fill', colorClass, positionClass]" 
+        :style="{ width: `${player.health}%` }"
+        :class="{ 'low-health': player.health <= 30, 'no-transition': isSwitchingPlayer }"
+      ></div>
+    </div>
+    <div class="health-info">
+      <div v-if="player.hasArmor || player.hasHelmet" class="armor">
+        <img
+          v-if="player.hasHelmet"
+          src="/hud/img/icons/armor-helmet.svg"
+          alt="Helmet"
+        />
+        <img v-else src="/hud/img/icons/armor.svg" alt="Armor" />
+      </div>
+      <div class="health-value" :style="{ opacity: healthValueOpacity }">
+        {{ player.health }}
+      </div>
+    </div>
+  </div>
+  
+  </div>
+  <div class="player-info">
+
+  <div class="bod">
+    <img v-if="player.hasDefuser" src="/hud/img/weapons/defuser.svg" alt="" class="defuser">
+    <img v-else-if="player.hasBomb" src="/hud/img/weapons/c4.svg" alt="" :class="['bomb', { '--active': isBombActive }]">
+    <img v-else= :src="/hud/img/weapons/defuser.svg" alt="" class="op0">
+  </div>
+
+  <div :class="['player-name', colorClass, positionClass]">
+    {{ player.name || 'Unknown Player' }}
+  </div>
+
+  <div :class="['newmoney', positionClass]">${{ player.money }}</div>
+
+  <div :class="['ammo', positionClass, colorClass]" v-if="weapon">
+    <img src="/hud/img/icons/bullets.png" alt="" />
+    {{ getAmmoClip() }}/
+    <span :class="['beidan']" v-if="weapon"> {{ getAmmoReserve() }} </span>
+  </div>
+
+  <!-- 如果 weapon 为 null，显示默认值 -->
+  <div :class="['ammo', positionClass, colorClass]" v-else>
+    <img src="/hud/img/icons/bullets.png" alt="" />
+    <span :class="['noammo']">0/</span>
+    <span :class="['beidan']">0</span>
+  </div>
+
+  <Transition mode="out-in">
+    <div class="weapons">
+    <div
+      v-if="player.isAlive && player.primary"
+      :class="['primary', positionClass]"
+    >
+      <img
+        :src="iconUrl"
+        alt=""
+        :class="{ '--active': player.primary.isActive }"
+      />
+    </div>
+    <div
+      v-if="player.isAlive && player.secondary"
+      :class="['secondary', positionClass]"
+    >
+      <img
+        :src="siconUrl"
+        alt=""
+        :class="{ '--active': player.secondary.isActive }"
+      />
+    </div>
+  </div>
+  </Transition>
+  
+
+  <div class="kills">
+    <span class="value" :class="{ '--good': player.hasGoodKdRatio }">
+      K
+        <span :class="['ammoc', positionClass, colorClass]">
+        {{ player.kills }}
+        </span>
+      A
+        <span :class="['ammoc', positionClass, colorClass]">
+        {{ player.assists }}
+        </span>
+      D
+        <span :class="['ammoc', positionClass, colorClass]">
+        {{ player.deaths }}
+        </span>
+    </span>
+  </div>
+
+  <div class="grenades">
+        <div v-for="grenade of grenades" :key="grenade.key" class="grenade">
+        <img :src="grenade.iconUrl" alt="" :class="{ '--active': grenade.isActive }">
+        </div>
+  </div>
+  </div>
+</div>

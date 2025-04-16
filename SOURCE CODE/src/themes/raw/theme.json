@@ -1,0 +1,95 @@
+{
+  "options": {
+    "preferences.isCsgo": {
+      "type": "boolean",
+      "section": "Preferences",
+      "label": "CS:GO"
+    },
+
+    "preferences.minimumGoodKdRatio": {
+      "type": "number",
+      "section": "Preferences",
+      "label": "K/D good",
+      "fallback": "1.001"
+    },
+
+    "preferences.maximumBadKdRatio": {
+      "type": "number",
+      "section": "Preferences",
+      "label": "K/D bad",
+      "fallback": "0.999"
+    },
+
+    "cvars.mp_maxrounds": {
+      "type": "number",
+      "fallback": 24,
+      "section": "Cvars",
+      "label": "The game max-rounds"
+    },
+
+    "cvars.mp_overtime_maxrounds": {
+      "type": "number",
+      "fallback": 6,
+      "section": "Cvars",
+      "label": "Overtime max-rounds"
+    },
+
+    "teams.teamNameOverrides": {
+      "type": "text",
+      "section": "Teams",
+      "label": "Team Name Overrides, Just provide SteamID and Team-name, like '765656565656563 Goki3'"
+    },
+
+    "teams.playerNameOverrides": {
+      "type": "text",
+      "section": "Teams",
+      "label": "玩家名字覆盖,例：‘Steam64ID 玩家名’"
+    },
+
+    "teams.hiddenPlayers": {
+      "type": "text",
+      "section": "Teams",
+      "label": "Team Name Overrides, Just provide SteamID"
+    },
+    "series.hideTotalScores": {
+      "type": "boolean",
+      "section": "Displays",
+      "label": "Total Scores"
+    },
+    "series.hideSidebars": {
+      "type": "boolean",
+      "section": "Displays",
+      "label": "Sidebars"
+    },
+    "series.ShowOtherStyles": {
+      "type": "boolean",
+      "section": "Displays",
+      "label": "Sidebars [Replays mode]"
+    },
+    "series.ShowPlayerAgentAvatars": {
+      "type": "boolean",
+      "section": "Displays",
+      "label": "Player Avatars at Sidebars"
+    },
+    "series.ShowPlayerAgentAvatarsFP": {
+      "type": "boolean",
+      "section": "Displays",
+      "label": "Player Avatars at Focused Player"
+    },
+    "series.hideRadars": {
+      "type": "boolean",
+      "section": "Displays",
+      "label": "Radars"
+    },
+    "series.hidemapName": {
+      "type": "boolean",
+      "section": "Displays",
+      "label": "Series Graph"
+    },
+    "series.ShowAds": {
+      "type": "boolean",
+      "section": "Displays",
+      "label": "Show Advs"
+    }
+  }
+}

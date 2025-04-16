@@ -1,0 +1,28 @@
+.match-point-rounds-overflow-container {
+  grid-area: match-point-rounds;
+  overflow: hidden;
+  display: none;
+}
+
+.match-point-rounds {
+  height: 100%;
+  bottom: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: var(--black-50);
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  transition:
+    clip-path var(--fade-default-duration) ease,
+    transform var(--fade-default-duration) ease;
+}
+
+.match-point-rounds:not(.--active) {
+  transform: translateY(-100%);
+
+  display: none;
+}

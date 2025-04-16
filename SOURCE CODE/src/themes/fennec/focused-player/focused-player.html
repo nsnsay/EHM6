@@ -1,0 +1,17 @@
+<Transition mode="out-in">
+  <div
+    v-if="isActive"
+    :class="['focused-player', { '--has-overlay-bottom': !! overlayBottomImageUrl }]"
+  >
+    <FocusedPlayerNameAndStats />
+
+    <img
+      v-if="overlayBottomImageUrl"
+      class="overlay-bottom"
+      :src="overlayBottomImageUrl"
+      alt=""
+    />
+  </div>
+
+  <div v-else-if="$round.isFreezetime" class="freezetime-placeholder"></div>
+</Transition>

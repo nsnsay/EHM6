@@ -1,0 +1,23 @@
+<Transition name="top-bar-team-panel-slide">
+  <div
+    v-if="isMatchPointPanelActive"
+    :class="['top-bar-team-panel-wrapper', 'match-point-wrapper', positionClass, colorClass]"
+    pad="2"
+  >
+    <div
+      :class="['top-bar-team-panel', 'match-point', positionClass, colorClass]"
+    >
+      <div class="inner">
+        <img
+          :class="['logo', positionClass, colorClass, { '--active': logoImageLoaded }]"
+          :src="`/custom/team-logos/${team.name}.png`"
+          alt=""
+          @error="logoImageLoaded = false"
+          @loaded="logoImageLoaded = true"
+          @loading="logoImageLoaded = false"
+        />
+        Match Point
+      </div>
+    </div>
+  </div>
+</Transition>

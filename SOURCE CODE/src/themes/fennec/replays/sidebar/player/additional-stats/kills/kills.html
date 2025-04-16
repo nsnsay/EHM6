@@ -1,0 +1,8 @@
+<div class="kills">
+  <div :class="['label', colorClass]">
+    <img src="/hud/img/icons/crosshair.svg" alt="" />
+  </div>
+  <div :class="['value', { '--good': player.hasGoodKdRatio }]">
+    {{ player.kills }}
+  </div>
+</div>
